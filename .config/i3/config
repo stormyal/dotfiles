@@ -141,9 +141,9 @@ smart_borders no_gaps
 
 # nord color scheme
 # class                 border  backgr. text    indicator child_border
-client.focused          #81a1c1 #81a1c1 #eceff4 #000000   #000000
-client.focused_inactive #5e81ac #5e81ac #eceff4 #000000   #000000
-client.unfocused        #4c566a #4c566a #eceff4 #000000   #000000
-client.urgent           #4c566a #4c566a #eceff4 #000000   #000000
-client.placeholder      #4c566a #4c566a #eceff4 #000000   #000000
+client.focused          #2e3440 #81a1c1 #eceff4 #000000   #000000
+client.focused_inactive #2e3440 #5e81ac #eceff4 #000000   #000000
+client.unfocused        #2e3440 #4c566a #eceff4 #000000   #000000
+client.urgent           #2e3440 #4c566a #eceff4 #000000   #000000
+client.placeholder      #2e3440 #4c566a #eceff4 #000000   #000000
 
