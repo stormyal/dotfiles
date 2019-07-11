@@ -23,7 +23,7 @@ scrollback_lines = 10000
 #browser = xdg-open
 
 # "system", "on" or "off"
-#cursor_blink = system
+cursor_blink = off
 
 # "block", "underline" or "ibeam"
 #cursor_shape = block
@@ -69,10 +69,10 @@ color15 = #eceff4
 
 [hints]
 #font = Monospace 12
-#foreground = #dcdccc
-#background = #3f3f3f
-#active_foreground = #e68080
-#active_background = #3f3f3f
+foreground = #dcdccc
+background = #3f3f3f
+active_foreground = #e68080
+active_background = #3f3f3f
 #padding = 2
 #border = #3f3f3f
 #border_width = 0.5

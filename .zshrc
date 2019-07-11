@@ -36,3 +36,6 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 # aliases
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
+alias ls='ls --color=always'
+alias v='nvim'
+alias cdfm='cd /home/alexander/development/tzoa/fm/fleet-management'
