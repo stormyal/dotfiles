@@ -23,8 +23,9 @@ if ! zgen saved; then
   zgen load zsh-users/zsh-history-substring-search
   zgen load zsh-users/zsh-autosuggestions
   zgen load zsh-users/zsh-completions
+  zgen load mafredri/zsh-async
+  zgen load sindresorhus/pure
 
-  # zgen oh-my-zsh themes/arrow
   # generate the init script from plugins above
   zgen save
 fi
