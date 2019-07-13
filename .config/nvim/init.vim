@@ -10,9 +10,14 @@ set softtabstop=2
 
 " vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'arcticicestudio/nord-vim'
-" Plug 'tpope/vim-fugitive'
-Plug 'leafgarland/typescript-vim'
+  Plug 'arcticicestudio/nord-vim'
+  Plug 'tpope/vim-fugitive'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-eunuch'
+  Plug 'tpope/vim-commentary'
+  Plug 'mtth/scratch.vim'
+  Plug 'junegunn/fzf'
 call plug#end()
 
 com! PU PlugUpdate | PlugUpgrade
@@ -64,16 +69,39 @@ set statusline+=\ \|\ %2p%%
 " total lines
 set statusline+=/%L
 
+" treat broken line as separate lines
+map j gj
+map k gk
+
+" switch between scss, html, ts files
+noremap <F2> :e %<.ts<CR>
+noremap <F3> :e %<.html<CR>
+noremap <F4> :e %<.scss<CR>
+
 " disable backspace and delete
 ":inoremap <BS> <Nop>
 ":inoremap <Del> <Nop>
 
 " disable arrow keys
-:inoremap <Up> <Nop>
-:inoremap <Down> <Nop>
-:inoremap <Left> <Nop>
-:inoremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
 
 " swap colon and semicolon
 noremap ; :
 noremap : ;
+
+" Preserve selection after indentation
+vmap > >gv
+vmap < <gv
+
+" set leader key
+let mapleader = "\<space>"
+
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+noremap <leader>fz :FZF<CR>
