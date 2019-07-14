@@ -1,4 +1,3 @@
-filetype off
 " vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'arcticicestudio/nord-vim'
@@ -10,6 +9,7 @@ Plug 'tpope/vim-commentary'
 Plug 'mtth/scratch.vim'
 Plug 'junegunn/fzf'
 Plug 'altercation/vim-colors-solarized'
+Plug 'mboughaba/i3config.vim'
 call plug#end()
 
 " update plugins and vim-plug
@@ -109,6 +109,11 @@ map <C-l> <C-W>l
 
 " open fuzzy finder
 noremap <leader>fz :FZF<CR>
+
+autocmd BufNewFile,BufRead config set syntax=config
+autocmd BufNewFile,BufRead *.git/config set syntax=gitconfig
+autocmd BufNewFile,BufRead *.myconf/config set syntax=gitconfig
+au BufNewFile,BufRead ~/.i3/config set filetype=i3config
 
 " " save views
 " augroup remember_folds
