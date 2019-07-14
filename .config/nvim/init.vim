@@ -35,16 +35,6 @@ let g:nord_italic_comments = 1
 colorscheme nord
 " highlight Folded ctermbg=21
 
-" diff of current buffer with original
-function! s:DiffWithSaved()
-  let filetype=&ft
-  diffthis
-  vnew | r # | normal! 1Gdd
-  diffthis
-  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
-endfunction
-com! DiffSaved call s:DiffWithSaved()
-
 " clear trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
 
@@ -113,7 +103,17 @@ noremap <leader>fz :FZF<CR>
 autocmd BufNewFile,BufRead config set syntax=config
 autocmd BufNewFile,BufRead *.git/config set syntax=gitconfig
 autocmd BufNewFile,BufRead *.myconf/config set syntax=gitconfig
-au BufNewFile,BufRead ~/.i3/config set filetype=i3config
+autocmd BufNewFile,BufRead ~/.i3/config set filetype=i3config
+
+" diff of current buffer with original
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
 
 " " save views
 " augroup remember_folds
