@@ -13,6 +13,7 @@ zstyle ':completion:*' menu select
 bindkey -v
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+export BROWSER=firefox
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
