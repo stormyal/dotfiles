@@ -1,4 +1,24 @@
-filetype plugin indent on
+filetype off
+" vim-plug
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'arcticicestudio/nord-vim'
+Plug 'tpope/vim-fugitive'
+Plug 'leafgarland/typescript-vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-commentary'
+Plug 'mtth/scratch.vim'
+Plug 'junegunn/fzf'
+Plug 'altercation/vim-colors-solarized'
+call plug#end()
+
+" update plugins and vim-plug
+com! PU PlugUpdate | PlugUpgrade
+
+" filetype settings
+filetype on
+filetype plugin on
+filetype indent on
 
 set number relativenumber
 set autoindent
@@ -8,27 +28,14 @@ set smartindent
 set smarttab
 set softtabstop=2
 
-" vim-plug
-call plug#begin('~/.local/share/nvim/plugged')
-  Plug 'arcticicestudio/nord-vim'
-  Plug 'tpope/vim-fugitive'
-  Plug 'leafgarland/typescript-vim'
-  Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-eunuch'
-  Plug 'tpope/vim-commentary'
-  Plug 'mtth/scratch.vim'
-  Plug 'junegunn/fzf'
-call plug#end()
-
-com! PU PlugUpdate | PlugUpgrade
-
 " nord color scheme
 let g:nord_italic = 1
 let g:nord_underline = 1
 let g:nord_italic_comments = 1
 colorscheme nord
+" highlight Folded ctermbg=21
 
-" show unsaved changes
+" diff of current buffer with original
 function! s:DiffWithSaved()
   let filetype=&ft
   diffthis
@@ -41,7 +48,7 @@ com! DiffSaved call s:DiffWithSaved()
 " clear trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
 
-" statusline
+" status line
 " always show statusline
 set laststatus=2
 " buffer number
@@ -69,32 +76,28 @@ set statusline+=\ \|\ %2p%%
 " total lines
 set statusline+=/%L
 
-" treat broken line as separate lines
-map j gj
-map k gk
-
 " switch between scss, html, ts files
 noremap <F2> :e %<.ts<CR>
 noremap <F3> :e %<.html<CR>
 noremap <F4> :e %<.scss<CR>
 
-" disable backspace and delete
-":inoremap <BS> <Nop>
-":inoremap <Del> <Nop>
-
 " disable arrow keys
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
 " swap colon and semicolon
 noremap ; :
 noremap : ;
 
-" Preserve selection after indentation
+" preserve selection after indentation
 vmap > >gv
 vmap < <gv
+
+" treat broken line as separate lines
+map j gj
+map k gk
 
 " set leader key
 let mapleader = "\<space>"
@@ -104,4 +107,12 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" open fuzzy finder
 noremap <leader>fz :FZF<CR>
+
+" " save views
+" augroup remember_folds
+"   autocmd!
+"   autocmd BufWinLeave * mkview
+"   autocmd BufWinEnter * silent! loadview
+" augroup END
