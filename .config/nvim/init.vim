@@ -10,6 +10,7 @@ Plug 'mtth/scratch.vim'
 Plug 'junegunn/fzf'
 Plug 'altercation/vim-colors-solarized'
 Plug 'mboughaba/i3config.vim'
+Plug 'vim-airline/vim-airline'
 call plug#end()
 
 " update plugins and vim-plug
@@ -20,51 +21,40 @@ filetype on
 filetype plugin on
 filetype indent on
 
+" line numbers
 set number relativenumber
+
 set autoindent
-set expandtab
 set shiftwidth=2
 set smartindent
-set smarttab
+set cursorline
+
+" spaces and tabs
+set expandtab
 set softtabstop=2
+set smarttab
 
 " nord color scheme
 let g:nord_italic = 1
 let g:nord_underline = 1
 let g:nord_italic_comments = 1
 colorscheme nord
-" highlight Folded ctermbg=21
+" highlight Folded ctermbg=11
 
 " clear trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
 
-" status line
-" always show statusline
-set laststatus=2
-" buffer number
-set statusline=Buf:%(%{&filetype!='help'?bufnr('%'):''}\ \|\ %)
-" add full expanded path (without filename) of file, cut from right at 30 chars
-set statusline+=%.30{fnamemodify(bufname('%'),':p:h')}/
-" add filename
-set statusline+=%t
-" add modified or RO marker after filename if either true
-set statusline+=%{&modified?'\ +\ ':''}
-set statusline+=%{&readonly?'\ 🔒\ ':''}
-" from here, align the rest to the right
-set statusline+=%=
-" file type as detected by vim, specifying when none
-set statusline+=[%{&filetype!=#''?&filetype:'none'}]
-" show file encoding ig
-set statusline+=%(\ \|%{(&bomb\|\|&fileencoding!~#'^$\\\|utf-8'?'\ '.&fileencoding.(&bomb?'-bom':''):'')\.(&fileformat!=#(has('win32')?'dos':'unix')?'\ '.&fileformat:'')}%)
-" show `et` or `noet` for expandtab on/off. Then, shift width
-set statusline+=%(\ \|\ %{&modifiable?(&expandtab?'et\ ':'noet\ ').&shiftwidth:''}%)
-" column number
-set statusline+=\ \|\ Col:\ %{&number?'':printf('%2d,',line('.'))}
-set statusline+=%-2v " Virtual column number if differs
-" percentage through file
-set statusline+=\ \|\ %2p%%
-" total lines
-set statusline+=/%L
+" set leader key
+let mapleader = "\<space>"
+
+" turn off search highlight
+nnoremap <leader>ho :nohlsearch<CR>
+
+" frequent files mappings
+nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>ez :vsp ~/.zshrc<CR>
+nnoremap <leader>sv :so $MYVIMRC<CR>
+nnoremap <leader>sz :so ~/.zshrc<CR>
 
 " switch between scss, html, ts files
 noremap <F2> :e %<.ts<CR>
@@ -89,9 +79,6 @@ vmap < <gv
 map j gj
 map k gk
 
-" set leader key
-let mapleader = "\<space>"
-
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -104,6 +91,9 @@ autocmd BufNewFile,BufRead config set syntax=config
 autocmd BufNewFile,BufRead *.git/config set syntax=gitconfig
 autocmd BufNewFile,BufRead *.myconf/config set syntax=gitconfig
 autocmd BufNewFile,BufRead ~/.i3/config set filetype=i3config
+
+" netrw settings
+autocmd FileType netrw setl bufhidden=delete
 
 " diff of current buffer with original
 function! s:DiffWithSaved()
