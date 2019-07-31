@@ -124,7 +124,7 @@ let g:netrw_altv=0
 autocmd FileType netrw setl bufhidden=delete
 
 " formatters definition
-let g:formatdef_html_formatter='"html-beautify -s 2 -A aligned-multiple -w 100"'
+let g:formatdef_html_formatter='"html-beautify -s 2 -A aligned-multiple -w 120"'
 let g:formatters_html=['html_formatter']
 
 let g:formatdef_scss_formatter='"scssfmt % %"'
