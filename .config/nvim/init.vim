@@ -62,6 +62,15 @@ colorscheme nord
 " " clear trailing whitespaces on save
 " autocmd BufWritePre * %s/\s\+$//e
 
+" diff of current buffer with original
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
 " set leader key
 let mapleader="\<space>"
 
@@ -132,16 +141,6 @@ let g:formatters_scss=['scss_formatter']
 
 " let g:formatdef_ts_formatter='"tsfmt --useTslint /home/alexander/development/tzoa/fm/fleet-management/tslint.json --stdin %"'
 " let g:formatters_typescript=['ts_formatter']
-
-" diff of current buffer with original
-function! s:DiffWithSaved()
-  let filetype=&ft
-  diffthis
-  vnew | r # | normal! 1Gdd
-  diffthis
-  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
-endfunction
-com! DiffSaved call s:DiffWithSaved()
 
 " " save views
 " augroup remember_folds
