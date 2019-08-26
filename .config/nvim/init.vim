@@ -80,10 +80,6 @@ nnoremap <leader>ho :nohlsearch<CR>
 " test view saving
 noremap <F11> mkHmlggg?G`lzt`k
 
-" auto format
-nnoremap <leader>af :Autoformat<CR>
-let g:autoformat_verbosemode=1
-
 " frequent files mappings
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
@@ -131,6 +127,10 @@ let g:netrw_banner=0
 let g:netrw_liststyle=3
 let g:netrw_altv=0
 autocmd FileType netrw setl bufhidden=delete
+
+" auto format
+nnoremap <leader>af :Autoformat<CR>
+" let g:autoformat_verbosemode=0
 
 " formatters definition
 autocmd BufWrite * :Autoformat
