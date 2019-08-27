@@ -49,6 +49,10 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 bindkey -M menuselect '^[[Z' reverse-menu-complete
 
+# disable shell reserved word and enable POSIX output
+disable -r time
+alias time='time -p '
+
 # aliases
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 alias ls='ls --color=always'
