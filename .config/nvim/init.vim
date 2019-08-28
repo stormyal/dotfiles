@@ -26,7 +26,7 @@ Plug 'shougo/vimproc.vim', {'do' : 'make'}
 Plug 'quramy/tsuquyomi'
 
 " utils
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
 call plug#end()
 
 " update plugins and vim-plug
