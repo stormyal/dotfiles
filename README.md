@@ -1,2 +1,2 @@
 # Dotfiles
-My dotfiles for Linux with i3-gaps.
+Dotfiles for Linux with i3-gaps.
