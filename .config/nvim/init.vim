@@ -7,21 +7,21 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'altercation/vim-colors-solarized'
 
 Plug 'leafgarland/typescript-vim'
-" version control
+" " version control
 Plug 'tpope/vim-fugitive'
 
-" helpers
+" " helpers
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
 Plug 'mtth/scratch.vim'
-" Plug 'junegunn/fzf'
+" " Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mboughaba/i3config.vim'
 Plug 'chiel92/vim-autoformat'
-Plug 'valloric/youcompleteme'
+" Plug 'valloric/youcompleteme'
 
-" typescript
+" " typescript
 Plug 'shougo/vimproc.vim', {'do' : 'make'}
 Plug 'quramy/tsuquyomi'
 
@@ -130,7 +130,7 @@ autocmd FileType netrw setl bufhidden=delete
 
 " auto format
 nnoremap <leader>af :Autoformat<CR>
-" let g:autoformat_verbosemode=0
+let g:autoformat_verbosemode=1
 
 " formatters definition
 autocmd BufWrite * :Autoformat
@@ -139,6 +139,9 @@ let g:formatters_html=['html_formatter']
 
 let g:formatdef_scss_formatter='"scssfmt % %"'
 let g:formatters_scss=['scss_formatter']
+
+let g:formatdef_cpp_formatter='"clang-format -style=WebKit"'
+let g:formatters_cpp=['cpp_formatter']
 
 " let g:formatdef_ts_formatter='"tsfmt --useTslint /home/alexander/development/tzoa/fm/fleet-management/tslint.json --stdin %"'
 " let g:formatters_typescript=['ts_formatter']
