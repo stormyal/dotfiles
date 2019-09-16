@@ -41,7 +41,7 @@ filetype indent on
 set number relativenumber
 
 set autoindent
-set shiftwidth=2
+set shiftwidth=4
 set smartindent
 set cursorline
 set scrolloff=4
