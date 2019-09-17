@@ -27,13 +27,13 @@ prompt redhat
 export ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc)
 source /usr/share/zsh/share/zgen.zsh
 if ! zgen saved; then
-  # load plugins
-  zgen load zsh-users/zsh-syntax-highlighting
-  zgen load zsh-users/zsh-history-substring-search
-  # zgen load zsh-users/zsh-autosuggestions
-  zgen load zsh-users/zsh-completions
-  zgen load mafredri/zsh-async
-  zgen load sindresorhus/pure
+    # load plugins
+    zgen load zsh-users/zsh-syntax-highlighting
+    zgen load zsh-users/zsh-history-substring-search
+    # zgen load zsh-users/zsh-autosuggestions
+    zgen load zsh-users/zsh-completions
+    zgen load mafredri/zsh-async
+    zgen load sindresorhus/pure
 
   # generate the init script from plugins above
   zgen save
@@ -57,4 +57,5 @@ bindkey -M menuselect '^[[Z' reverse-menu-complete
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 alias ls='ls --color=always'
 alias v='nvim'
+alias rng='ranger'
 alias cdfm='cd /home/alexander/development/tzoa/fm/fleet-management'
