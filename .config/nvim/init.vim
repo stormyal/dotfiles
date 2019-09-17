@@ -133,7 +133,7 @@ nnoremap <leader>af :Autoformat<CR>
 let g:autoformat_verbosemode=0
 
 " formatters definition
-autocmd BufWrite * :Autoformat
+" autocmd BufWrite * :Autoformat
 let g:formatdef_html_formatter='"html-beautify -s 2 -A aligned-multiple -w 120"'
 let g:formatters_html=['html_formatter']
 
