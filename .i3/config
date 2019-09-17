@@ -259,7 +259,8 @@ bindsym $mod+Shift+q exec --no-startup-id blurlock
 exec xset r rate 200 30
 
 # Autostart applications
-exec unclutter &
+exec --no-startup-id unclutter
+exec --no-startup-id redshift
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 #exec --no-startup-id manjaro-hello
