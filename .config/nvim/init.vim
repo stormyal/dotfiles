@@ -64,11 +64,11 @@ colorscheme nord
 
 " diff of current buffer with original
 function! s:DiffWithSaved()
-  let filetype=&ft
-  diffthis
-  vnew | r # | normal! 1Gdd
-  diffthis
-  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+    let filetype=&ft
+    diffthis
+    vnew | r # | normal! 1Gdd
+    diffthis
+    exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 com! DiffSaved call s:DiffWithSaved()
 " set leader key
@@ -130,7 +130,7 @@ autocmd FileType netrw setl bufhidden=delete
 
 " auto format
 nnoremap <leader>af :Autoformat<CR>
-let g:autoformat_verbosemode=1
+let g:autoformat_verbosemode=0
 
 " formatters definition
 autocmd BufWrite * :Autoformat
