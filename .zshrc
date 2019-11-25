@@ -13,7 +13,11 @@ zstyle ':completion:*' menu select
 bindkey -v
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+export DOTNET_ROOT=/opt/dotnet
 export BROWSER=firefox
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export MSBuildSDKsPath=/opt/dotnet/sdk/2.2.108/Sdks/
+export PATH=/home/alexander/.yarn/bin:$PATH
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
@@ -58,4 +62,5 @@ alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 alias ls='ls --color=always'
 alias v='nvim'
 alias rng='ranger'
-alias cdfm='cd /home/alexander/development/tzoa/fm/fleet-management'
+alias cdfm='cd /home/alexander/code/tzoa/fleet'
+alias az='azure-cli'
