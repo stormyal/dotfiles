@@ -2,29 +2,12 @@
 call plug#begin('~/.local/share/nvim/plugged')
 " color schemes
 Plug 'arcticicestudio/nord-vim'
-Plug 'altercation/vim-colors-solarized'
-
-Plug 'leafgarland/typescript-vim'
-
 Plug 'tpope/vim-fugitive'
-
-" helpers
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
-Plug 'mtth/scratch.vim'
-" Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mboughaba/i3config.vim'
 Plug 'chiel92/vim-autoformat'
-Plug 'valloric/youcompleteme'
-
-" " typescript
-Plug 'shougo/vimproc.vim', {'do' : 'make'}
-Plug 'quramy/tsuquyomi'
-
-" utils
-" Plug 'vim-airline/vim-airline'
 call plug#end()
 
 " update plugins and vim-plug
@@ -53,7 +36,7 @@ set smarttab
 " nord color scheme
 let g:nord_italic=1
 let g:nord_underline=1
-let g:nord_italic_comments=1
+let g:nord_italic_comments=0
 colorscheme nord
 " highlight Folded ctermbg=11
 
