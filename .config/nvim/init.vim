@@ -1,5 +1,3 @@
-filetype off
-
 " vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
 " color schemes
@@ -7,19 +5,19 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'altercation/vim-colors-solarized'
 
 Plug 'leafgarland/typescript-vim'
-" " version control
+
 Plug 'tpope/vim-fugitive'
 
-" " helpers
+" helpers
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
 Plug 'mtth/scratch.vim'
-" " Plug 'junegunn/fzf'
+" Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mboughaba/i3config.vim'
 Plug 'chiel92/vim-autoformat'
-" Plug 'valloric/youcompleteme'
+Plug 'valloric/youcompleteme'
 
 " " typescript
 Plug 'shougo/vimproc.vim', {'do' : 'make'}
@@ -49,7 +47,7 @@ set smartcase
 
 " spaces and tabs
 set expandtab
-set softtabstop=2
+set softtabstop=4
 set smarttab
 
 " nord color scheme
@@ -71,6 +69,7 @@ function! s:DiffWithSaved()
     exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 com! DiffSaved call s:DiffWithSaved()
+
 " set leader key
 let mapleader="\<space>"
 
@@ -78,6 +77,7 @@ let mapleader="\<space>"
 nnoremap <leader>ho :nohlsearch<CR>
 
 " test view saving
+" wtf is this?
 noremap <F11> mkHmlggg?G`lzt`k
 
 " frequent files mappings
@@ -100,10 +100,6 @@ noremap <Right> <Nop>
 " swap colon and semicolon
 noremap ; :
 noremap : ;
-
-" preserve selection after indentation
-vmap > >gv
-vmap < <gv
 
 " treat broken line as separate lines
 map j gj
@@ -129,18 +125,20 @@ let g:netrw_altv=0
 autocmd FileType netrw setl bufhidden=delete
 
 " auto format
+let g:autoformatOn = 0
+
 nnoremap <leader>af :Autoformat<CR>
-let g:autoformat_verbosemode=0
+let g:autoformat_verbosemode=1
 
 " formatters definition
-" autocmd BufWrite * :Autoformat
+" noautocmd BufWrite * :Autoformat
 let g:formatdef_html_formatter='"html-beautify -s 2 -A aligned-multiple -w 120"'
 let g:formatters_html=['html_formatter']
 
 let g:formatdef_scss_formatter='"scssfmt % %"'
 let g:formatters_scss=['scss_formatter']
 
-let g:formatdef_cpp_formatter='"clang-format -style=WebKit"'
+let g:formatdef_cpp_formatter='"clang-format -assume-filename=.myclang -style=file"'
 let g:formatters_cpp=['cpp_formatter']
 
 " let g:formatdef_ts_formatter='"tsfmt --useTslint /home/alexander/development/tzoa/fm/fleet-management/tslint.json --stdin %"'
