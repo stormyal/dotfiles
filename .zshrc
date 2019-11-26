@@ -59,6 +59,7 @@ bindkey -M menuselect '^[[Z' reverse-menu-complete
 
 # aliases
 alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
+dots config status.showUntrackedFiles no
 alias ls='ls --color=always'
 alias v='nvim'
 alias rng='ranger'
