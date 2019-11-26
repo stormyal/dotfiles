@@ -94,7 +94,13 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " open fuzzy finder
-noremap <leader>ff :FZF<CR>
+noremap <leader><leader>f :FZF<CR>
+noremap <leader>f :GFiles<CR>
+noremap <leader>F :Locate /<CR>
+noremap <leader>b :Buffers<CR>
+noremap <leader>l :Lines<CR>
+noremap <leader><leader>l :BLines<CR>
+noremap <leader>a :Ag<CR>
 
 autocmd BufNewFile,BufRead config set syntax=config
 autocmd BufNewFile,BufRead *.git/config set syntax=gitconfig
@@ -110,7 +116,7 @@ autocmd FileType netrw setl bufhidden=delete
 " auto format
 let g:autoformatOn = 0
 
-nnoremap <leader>af :Autoformat<CR>
+nnoremap <leader>i :Autoformat<CR>
 let g:autoformat_verbosemode=1
 
 " formatters definition
