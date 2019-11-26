@@ -58,7 +58,7 @@ bindkey -M menuselect '^[[Z' reverse-menu-complete
 # alias time='time -p '
 
 # aliases
-alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
+alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
 alias ls='ls --color=always'
 alias v='nvim'
 alias rng='ranger'
