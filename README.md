@@ -11,6 +11,10 @@ rm -r ~/dots-tmp/
 Set up vsc tracking for dotfiles:
 ```
 alias config='/usr/bin/git --git-dir=$HOME/.dots --work-tree=$HOME'
-config config status.showUntrackedFiles no
+dots config status.showUntrackedFiles no
 source ~/.zshrc
 ```
+
+Dependencies:
+- vim-plug (should be installed automatically when openning vim for the first time)
+- zgen (zsh plugin manager)
