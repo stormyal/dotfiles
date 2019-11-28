@@ -1,8 +1,8 @@
 " vim-plug
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.local/share/nvim/plugged')
@@ -94,10 +94,10 @@ noremap : ;
 map j gj
 map k gk
 
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-h> <C-w>h
+noremap <C-l> <C-w>l
 
 " open fuzzy finder
 noremap <leader><leader>f :FZF<CR>
@@ -106,18 +106,20 @@ noremap <leader>F :Locate /<CR>
 noremap <leader>b :Buffers<CR>
 noremap <leader>l :Lines<CR>
 noremap <leader><leader>l :BLines<CR>
-noremap <leader>a :Ag<CR>
+noremap <leader>a :Ag
 
 autocmd BufNewFile,BufRead config set syntax=config
 autocmd BufNewFile,BufRead *.git/config set syntax=gitconfig
 autocmd BufNewFile,BufRead *.myconf/config set syntax=gitconfig
 autocmd BufNewFile,BufRead ~/.i3/config set filetype=i3config
 
-" netrw settings
-let g:netrw_banner=0
-let g:netrw_liststyle=3
-let g:netrw_altv=0
-autocmd FileType netrw setl bufhidden=delete
+" netrw  settings
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+" let g:netrw_winsize = 20
+let g:netrw_browse_split = 4
+nnoremap <leader>t :Lex!<CR>
+" autocmd FileType netrw setl bufhidden=delete
 
 " auto format
 let g:autoformatOn = 0
