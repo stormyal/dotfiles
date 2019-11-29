@@ -1,7 +1,8 @@
-!map escape to caps lock
+! map escape to caps lock
 remove lock = Caps_Lock
 keycode 66 = Escape
 
+! swap super and alt on the left
 remove mod1 = Alt_L
 remove mod4 = Super_L
 keycode 133 = Alt_L
@@ -9,10 +10,12 @@ keycode 64 = Super_L
 add mod1 = Alt_L
 add mod4 = Super_L
 
+! map super on right alt
 remove mod1 = Alt_R
 keycode 108 = Super_R
 add mod4 = Super_R
 
+! swap control and menu
 keycode 135 = Control_R
 keycode 105 = Menu
 add control = Control_R
