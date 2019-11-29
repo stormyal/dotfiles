@@ -66,11 +66,11 @@ alias rng='ranger'
 alias cdfm='cd /home/alexander/code/tzoa/fleet'
 alias az='azure-cli'
 
-host=$(hostname)
-if [ "$host" = "macjaro" ]; then
-    setxkbmap
-    xmodmap ~/.Xmodmap-macjaro
-elif [ "$host" = "arch" ]; then
-    setxkbmap
-    xmodmap ~/.Xmodmap-arch
-fi
+# host=$(hostname)
+# if [ "$host" = "macjaro" ]; then
+#     setxkbmap
+#     xmodmap ~/.Xmodmap-macjaro
+# elif [ "$host" = "arch" ]; then
+#     setxkbmap
+#     xmodmap ~/.Xmodmap-arch
+# fi
