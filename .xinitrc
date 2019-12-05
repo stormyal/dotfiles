@@ -66,12 +66,14 @@ if ["$host" = "macjaro"]; then
     }
 
     exec $(get_session)
-    exec xmodmap ~/.Xmodmap-macjaro
+    # exec xmodmap ~/.Xmodmap-macjaro
 fi
 
 if ["$host" = "macjaro"]; then
     exec i3
-    exec xmodmap ~/.Xmodmap-arch
+    # exec xmodmap ~/.Xmodmap-arch
 fi
+
+xmodmap ~/.Xmodmap
 
 xset r rate 200 30
