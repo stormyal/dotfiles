@@ -106,7 +106,7 @@ noremap <leader>F :Locate /<CR>
 noremap <leader>b :Buffers<CR>
 noremap <leader>l :Lines<CR>
 noremap <leader><leader>l :BLines<CR>
-noremap <leader>a :Ag
+noremap <leader>a :Ag<space>
 
 autocmd BufNewFile,BufRead config set syntax=config
 autocmd BufNewFile,BufRead *.git/config set syntax=gitconfig
