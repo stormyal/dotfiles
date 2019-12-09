@@ -230,6 +230,10 @@ filetype *.[1-8] man ./%c
 fileviewer *.[1-8] man ./%c | col -b
 
 " Images
+filextype *.jpg,*.jpeg,*.png,*.gif
+       \ {View in feh}
+       \ feh -FZ %d --start-at %d/%c 2>/dev/null
+
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
         \ {View in sxiv}
         \ sxiv %f,
@@ -456,6 +460,9 @@ nnoremap <f5> :copy<cr>
 nnoremap <f6> :move<cr>
 nnoremap <f7> :mkdir<space>
 nnoremap <f8> :delete<cr>
+
+" --------------------------- Custom settings ----------------------------------
+nmap ; :
 
 " ------------------------------------------------------------------------------
 
