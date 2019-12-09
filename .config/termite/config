@@ -31,10 +31,10 @@ color14 = #8fbcbb
 color15 = #eceff4
 
 # # extra colors
-# color16 = #81a1c1
-# color17 = #b48ead
-# color18 = #3b4252
-# color19 = #434c5e
-# color20 = #d8dee9
-# color21 = #2e3440
+color16 = #5e81ac
+color17 = #d08770
+color18 = #3b4252
+color19 = #434c5e
+color20 = #d8dee9
+color21 = #2e3440
 

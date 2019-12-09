@@ -64,7 +64,7 @@ set norunexec
 
 " Selected color scheme
 
-colorscheme Empty
+colorscheme nord
 
 " Format for displaying time in file list. For example:
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
@@ -463,6 +463,7 @@ nnoremap <f8> :delete<cr>
 
 " --------------------------- Custom settings ----------------------------------
 nmap ; :
+fileviewer */ tree %c
 
 " ------------------------------------------------------------------------------
 
