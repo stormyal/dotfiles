@@ -69,11 +69,7 @@ if ["$host" = "macjaro"]; then
     # exec xmodmap ~/.Xmodmap-macjaro
 fi
 
-if ["$host" = "macjaro"]; then
-    exec i3
-    # exec xmodmap ~/.Xmodmap-arch
-fi
-
+exec i3
 xmodmap ~/.Xmodmap
 
 xset r rate 200 30
