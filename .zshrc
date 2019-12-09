@@ -18,6 +18,7 @@ export BROWSER=firefox
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export MSBuildSDKsPath=/opt/dotnet/sdk/2.2.108/Sdks/
 export PATH=/home/alexander/.yarn/bin:$PATH
+export LC_ALL="en_US.UTF-8" # fixes prompt repeating characters when autocompleting
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
@@ -59,7 +60,6 @@ bindkey -M menuselect '^[[Z' reverse-menu-complete
 
 # aliases
 alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
-dots config status.showUntrackedFiles no
 alias ls='ls --color=always'
 alias v='nvim'
 alias rng='ranger'
