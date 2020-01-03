@@ -463,7 +463,8 @@ nnoremap <f8> :delete<cr>
 
 " --------------------------- Custom settings ----------------------------------
 nmap ; :
-fileviewer */ tree %c
+" fileviewer */ tree -L 1 %c -i
+fileviewer */ ls -1 %c
 
 " ------------------------------------------------------------------------------
 
