@@ -1,6 +1,6 @@
 [options]
 cursor_blink = off
-font = Monospace 12
+font = Hack Nerd Font Mono 12
 fullscreen = false
 scrollback_lines = 10000
 
