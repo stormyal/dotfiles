@@ -1,0 +1,11 @@
+[user]
+	email = asvatukhin@gmail.com
+	name = s9p0b
+[core]
+	pager = less -+FX -c
+[rerere]
+	enabled = 0
+[credential]
+	helper = store
+[alias]
+	ahbeh = rev-list --left-right --count
