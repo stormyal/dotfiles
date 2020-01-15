@@ -19,3 +19,8 @@ source $HOME/.zshrc
 Dependencies:
 - vim-plug (should be installed automatically when openning vim for the first time)
 - zgen (zsh plugin manager)
+
+Install zgen:
+```
+git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
+```
