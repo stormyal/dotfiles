@@ -17,20 +17,20 @@ export DOTNET_ROOT=/opt/dotnet
 export BROWSER=firefox
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export MSBuildSDKsPath=/opt/dotnet/sdk/2.2.108/Sdks/
-export PATH=/home/alexander/.yarn/bin:$PATH
+export PATH=$HOME/.yarn/bin:$PATH
 export LC_ALL="en_US.UTF-8" # fixes prompt repeating characters when autocompleting
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
-zstyle :compinstall filename '/home/alexander/.zshrc'
+zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit promptinit
 compinit
 promptinit
 prompt redhat
 
 export ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc)
-source /usr/share/zsh/share/zgen.zsh
+source $HOME/.zgen/zgen.zsh
 if ! zgen saved; then
     # load plugins
     zgen load zsh-users/zsh-syntax-highlighting
@@ -63,7 +63,7 @@ alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
 alias ls='ls --color=always'
 alias v='nvim'
 alias rng='ranger'
-alias cdfm='cd /home/alexander/code/tzoa/fleet'
-alias cdhv='cd /home/alexander/code/tzoa/haven'
+alias cdfm='cd $HOME/code/tzoa/fleet'
+alias cdhv='cd $HOME/code/tzoa/haven'
 alias sv='sudo -E nvim'
 alias cal='cal -3m'
