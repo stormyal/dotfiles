@@ -9,16 +9,22 @@ unsetopt beep extendedglob
 # highlight items during tab completion
 zstyle ':completion:*' menu select
 
-# set vim as the text editor
+# set vim as the default text editor
 bindkey -v
 export VISUAL=nvim
 export EDITOR="$VISUAL"
-export DOTNET_ROOT=/opt/dotnet
 export BROWSER=firefox
+# yarn
+export PATH=$HOME/.yarn/bin:$PATH
+# fixes prompt repeating characters when autocompleting
+export LC_ALL="en_US.UTF-8"
+# fzf
+export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# .NET
+export DOTNET_ROOT=/opt/dotnet
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export MSBuildSDKsPath=/opt/dotnet/sdk/2.2.108/Sdks/
-export PATH=$HOME/.yarn/bin:$PATH
-export LC_ALL="en_US.UTF-8" # fixes prompt repeating characters when autocompleting
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
@@ -68,3 +74,5 @@ alias cdhv='cd $HOME/code/tzoa/haven'
 alias cdbc='cd $HOME/school/cpsc319/bcch'
 alias sv='sudo -E nvim'
 alias cal='cal -3m'
+alias tapon="xinput --set-prop 11 'libinput Tapping Enabled' 1"
+alias tapoff="xinput --set-prop 11 'libinput Tapping Enabled' 0"
