@@ -66,7 +66,11 @@ if ["$host" = "macjaro"]; then
     }
 
     exec $(get_session)
-    # exec xmodmap ~/.Xmodmap-macjaro
+
+    # trackpad acceleration
+    xinput --set-prop 11 336 0.5
+    # disable trackpad tap
+    xinput --set-prop 11 316 0
 fi
 
 exec i3
