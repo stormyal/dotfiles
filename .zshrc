@@ -46,8 +46,8 @@ if ! zgen saved; then
     zgen load mafredri/zsh-async
     zgen load sindresorhus/pure
 
-  # generate the init script from plugins above
-  zgen save
+    # generate the init script from plugins above
+    zgen save
 fi
 
 # Change cursor shape for different vi modes.
@@ -73,19 +73,18 @@ preexec() {
    echo -ne '\e[5 q'
 }
 
+# command history options
 setopt HIST_FIND_NO_DUPS
 HISTORY_SUBSTRING_SEARCH_FUZZY='true'
 
+# up/down binds for command history searching
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
+# shift+tab to go up in autocomplete menu
 bindkey -M menuselect '^[[Z' reverse-menu-complete
-
-# disable shell reserved word and enable POSIX output
-# disable -r time
-# alias time='time -p '
 
 # aliases
 alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
