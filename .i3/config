@@ -60,6 +60,9 @@ bindsym $mod+Alt_L exec setxkbmap us && exec xmodmap ~/.Xmodmap
 # ru
 bindsym $mod+Shift+Alt_L exec setxkbmap ru && exec xmodmap ~/.Xmodmap
 
+# touchpad tap toggle
+bindsym $mod+comma exec xinput --set-prop 11 'libinput Tapping Enabled' 0; exec notify-send "Tapping off"
+bindsym $mod+period exec xinput --set-prop 11 'libinput Tapping Enabled' 1; exec notify-send "Tapping on"
 
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
