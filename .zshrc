@@ -69,9 +69,10 @@ zle -N zle-keymap-select
 echo -ne '\e[5 q'
 
 # Use beam shape cursor for each new prompt.
-preexec() {
+_fix_cursor() {
    echo -ne '\e[5 q'
 }
+precmd_functions+=(_fix_cursor)
 
 # command history options
 setopt HIST_FIND_NO_DUPS
