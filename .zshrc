@@ -19,7 +19,7 @@ export PATH=$HOME/.yarn/bin:$PATH
 # fixes prompt repeating characters when autocompleting
 export LC_ALL="en_US.UTF-8"
 # fzf
-export FZF_DEFAULT_COMMAND='sudo ag --hidden -g ""'
+export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # .NET
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
