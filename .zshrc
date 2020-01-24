@@ -19,7 +19,7 @@ export PATH=$HOME/.yarn/bin:$PATH
 # fixes prompt repeating characters when autocompleting
 export LC_ALL="en_US.UTF-8"
 # fzf
-export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
+export FZF_DEFAULT_COMMAND='ag --hidden -g "" 2>&1 | grep -v "Permission denied"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # .NET
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
@@ -97,3 +97,4 @@ alias sv='sudo -E nvim'
 alias cal='cal -3m'
 alias tapon="xinput --set-prop 11 'libinput Tapping Enabled' 1"
 alias tapoff="xinput --set-prop 11 'libinput Tapping Enabled' 0"
+alias pyact="source venv/bin/activate"
