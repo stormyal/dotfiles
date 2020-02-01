@@ -266,6 +266,7 @@ mode "resize" {
 # Lock screen
 bindsym $mod+Shift+q exec --no-startup-id blurlock
 
+exec xinput --set-prop 11 'libinput Tapping Enabled' 0
 # Set typematic delay
 exec xset r rate 200 30
 
