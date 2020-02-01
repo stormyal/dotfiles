@@ -99,6 +99,9 @@ noremap <C-k> <C-w>k
 noremap <C-h> <C-w>h
 noremap <C-l> <C-w>l
 
+" remove trailing whitespaces
+noremap <leader>rt :%s/\s\+$//e<CR>
+
 " open fuzzy finder
 noremap <leader><leader>f :FZF<CR>
 noremap <leader>f :GFiles<CR>
