@@ -89,9 +89,9 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # workspace back and forth (with/without active container)
-workspace_auto_back_and_forth yes
-bindsym $mod+backspace workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+# workspace_auto_back_and_forth yes
+bindsym $mod+BackSpace workspace back_and_forth
+# bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
 bindsym $mod+backslash split h;exec notify-send 'tile horizontally'
@@ -355,6 +355,7 @@ bindsym $mod+b bar mode toggle
 # move workspaces around monitors
 bindsym $mod+Right move workspace to output right
 bindsym $mod+Left move workspace to output left
+bindsym $mod+m focus output right
 
 # Theme colors
 # class                     border  backgr. text    indic.   child_border
