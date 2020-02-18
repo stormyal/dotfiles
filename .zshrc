@@ -6,6 +6,8 @@ zmodload zsh/complist
 setopt autocd share_history hist_ignore_dups nomatch notify
 unsetopt beep extendedglob
 
+setopt correct_all
+
 # highlight items during tab completion
 zstyle ':completion:*' menu select
 
