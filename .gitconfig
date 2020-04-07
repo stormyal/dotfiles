@@ -9,3 +9,5 @@
 	helper = store
 [alias]
 	ahbeh = rev-list --left-right --count
+[pager]
+	branch = false
