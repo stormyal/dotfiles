@@ -45,7 +45,7 @@ export HISTSIZE=10000000
 export SAVEHIST=10000000
 setopt share_history
 setopt hist_ignore_dups
-HISTORY_SUBSTRING_SEAejjjjjCH_FUZZY='true'
+HISTORY_SUBSTRING_SEARCH_FUZZY='true'
 bindkey -M viins "^[[A" history-substring-search-up
 bindkey -M viins "^[[B" history-substring-search-down
 #bindkey -M main "^P" history-substring-search-up
