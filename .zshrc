@@ -1,1 +1,1 @@
-/Users/alex/.zshrc
+../.zshrc
