@@ -32,3 +32,16 @@ vim.keymap.set('n', '<leader>en', ':e ~/notes<CR>')
 vim.keymap.set('n', '<leader>e?', ':e ~/notes/code/vim_cheatsheet.md<CR>')
 
 vim.keymap.set('n', '<leader>t', ':Neotree right toggle<CR>')
+
+local function create_new_note()
+  local notes_dir = vim.fn.expand("~/notes/inbox")
+  if vim.fn.isdirectory(notes_dir) == 0 then
+    vim.fn.mkdir(notes_dir, "p")
+  end
+  local date_format = os.date("%Y%m%d%H%M")
+  local file_path = notes_dir .. "/" .. date_format .. ".md"
+  vim.cmd("edit " .. file_path)
+end
+_G.create_new_note = create_new_note
+vim.api.nvim_set_keymap('n', '<leader>nn', ':lua create_new_note()<CR>', { noremap = true, silent = true })
+
