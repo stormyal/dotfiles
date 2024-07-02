@@ -1,7 +1,8 @@
 vim.g.mapleader = ' '
 local builtin = require('telescope.builtin')
 
-vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<cr>')
+vim.keymap.set('n', '<leader>t', ':Neotree right toggle<CR>')
+-- vim.keymap.set('n', '<leader>T', ':NvimTreeToggle<cr>')
 vim.keymap.set('n', '<leader>o', builtin.find_files)
 vim.keymap.set('n', '<leader><s-o>', ":lua require('oil').open_float('.')<cr>")
 vim.keymap.set('n', '<leader>f', function()
