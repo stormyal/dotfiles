@@ -1,8 +1,9 @@
 vim.g.mapleader = ' '
 local builtin = require('telescope.builtin')
 
+vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<cr>')
 vim.keymap.set('n', '<leader>o', builtin.find_files)
-vim.keymap.set('n', '<leader><s-o>', ':Oil<CR>')
+vim.keymap.set('n', '<leader><s-o>', ":lua require('oil').open_float('.')<cr>")
 vim.keymap.set('n', '<leader>f', function()
   builtin.grep_string{
     path_display = { 'smart' },
@@ -31,7 +32,6 @@ vim.keymap.set('n', '<leader>ec', ':e ~/code<CR>')
 vim.keymap.set('n', '<leader>en', ':e ~/notes<CR>')
 vim.keymap.set('n', '<leader>e?', ':e ~/notes/code/vim_cheatsheet.md<CR>')
 
-vim.keymap.set('n', '<leader>t', ':Neotree right toggle<CR>')
 
 local function create_new_note()
   local notes_dir = vim.fn.expand("~/notes/inbox")
