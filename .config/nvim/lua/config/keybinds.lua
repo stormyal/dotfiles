@@ -2,17 +2,18 @@ vim.g.mapleader = ' '
 local builtin = require('telescope.builtin')
 
 vim.keymap.set('n', '<leader>t', ':Neotree right toggle<CR>')
--- vim.keymap.set('n', '<leader>T', ':NvimTreeToggle<cr>')
-vim.keymap.set('n', '<leader>o', builtin.find_files)
+-- vim.keymap.set('n', '<leader>o', builtin.find_files)
+vim.keymap.set('n', '<leader>o', ":FzfLua files<cr>")
 vim.keymap.set('n', '<leader><s-o>', ":lua require('oil').open_float('.')<cr>")
-vim.keymap.set('n', '<leader>f', function()
-  builtin.grep_string{
-    path_display = { 'smart' },
-    only_sort_text = true,
-    word_match = "-w",
-    search = '',
-  }
-end)
+-- vim.keymap.set('n', '<leader>f', function()
+--   builtin.grep_string{
+--     path_display = { 'smart' },
+--     only_sort_text = true,
+--     word_match = "-w",
+--     search = '',
+--   }
+-- end)
+vim.keymap.set('n', '<leader>f', ":FzfLua live_grep<cr>")
 vim.keymap.set('n', '<leader>b', builtin.buffers)
 vim.keymap.set('n', '<leader>h', builtin.help_tags)
 

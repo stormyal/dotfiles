@@ -17,15 +17,15 @@ require("lazy").setup({
     },
     { "nvim-telescope/telescope.nvim", dependencies = { 'nvim-lua/plenary.nvim' } },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-    -- {
-    --   "ibhagwan/fzf-lua",
-    --   -- optional for icon support
-    --   dependencies = { "nvim-tree/nvim-web-devicons" },
-    --   config = function()
-    --     -- calling `setup` is optional for customization
-    --     require("fzf-lua").setup({})
-    --   end
-    -- },
+    {
+      "ibhagwan/fzf-lua",
+      -- optional for icon support
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+      config = function()
+        -- calling `setup` is optional for customization
+        require("fzf-lua").setup({'telescope', fzf_colors = true })
+      end
+    },
     { 'stevearc/oil.nvim', dependencies = { "nvim-tree/nvim-web-devicons" } },
     {
         "nvim-neo-tree/neo-tree.nvim",
