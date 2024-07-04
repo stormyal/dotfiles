@@ -41,10 +41,22 @@ require("lazy").setup({
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' }
     },
-    -- { 'nvim-tree/nvim-tree.lua' }
+    {
+      "NeogitOrg/neogit",
+      dependencies = {
+        "nvim-lua/plenary.nvim",         -- required
+        "sindrets/diffview.nvim",        -- optional - Diff integration
+
+        -- Only one of these is needed, not both.
+        -- "nvim-telescope/telescope.nvim", -- optional
+        "ibhagwan/fzf-lua",              -- optional
+      },
+      config = true
+    },
+    { 'nvim-tree/nvim-tree.lua' }
   },
   install = { 
-      colorscheme = { "ayu-light" }
+      colorscheme = { "ayu" }
   },
   -- automatically check for plugin updates
   checker = { enabled = true },

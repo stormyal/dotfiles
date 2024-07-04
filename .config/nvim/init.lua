@@ -22,7 +22,7 @@ require('ayu').setup({
     mirage = false,
     terminal = true,
 })
-require("oil").setup()
+-- require("oil").setup()
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -65,24 +65,40 @@ require('lualine').setup {
 }
 
 
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 -- require("nvim-tree").setup()
 
--- require("nvim-tree").setup({
---     sync_root_with_cwd = true,
---   sort = {
---     sorter = "case_sensitive",
---   },
---   view = {
---     width = 30,
---     side = 'right'
---   },
---   renderer = {
---     group_empty = true,
---   },
---   filters = {
---     dotfiles = true,
---   },
+require("nvim-tree").setup({
+    sync_root_with_cwd = true,
+  sort = {
+    sorter = "case_sensitive",
+  },
+  view = {
+    width = 30,
+    side = 'right'
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
+
+
+-- vim.api.nvim_create_autocmd("User", {
+--   pattern = "NeogitStatusRefreshed",
+--   callback = function()
+--     require("neo-tree.sources.filesystem.commands").refresh(require("neo-tree.sources.manager").get_state("filesystem"))
+--   end
 -- })
+--
+require("neo-tree").setup({
+  filesystem = {
+    group_empty_dirs = true,
+    use_libuv_file_watcher = true,
+    hijack_netrw_behavior = "open_default"
+  }
+})
