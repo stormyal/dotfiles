@@ -15,8 +15,8 @@ require("lazy").setup({
           vim.cmd([[colorscheme ayu]])
         end,
     },
-    { "nvim-telescope/telescope.nvim", dependencies = { 'nvim-lua/plenary.nvim' } },
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    -- { "nvim-telescope/telescope.nvim", dependencies = { 'nvim-lua/plenary.nvim' } },
+    -- { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     {
       "ibhagwan/fzf-lua",
       -- optional for icon support
@@ -27,16 +27,16 @@ require("lazy").setup({
       end
     },
     { 'stevearc/oil.nvim', dependencies = { "nvim-tree/nvim-web-devicons" } },
-    {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v3.x",
-        dependencies = {
-          "nvim-lua/plenary.nvim",
-          "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-          "MunifTanjim/nui.nvim",
-          -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-        }
-    },
+    -- {
+    --     "nvim-neo-tree/neo-tree.nvim",
+    --     branch = "v3.x",
+    --     dependencies = {
+    --       "nvim-lua/plenary.nvim",
+    --       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+    --       "MunifTanjim/nui.nvim",
+    --       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    --     }
+    -- },
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' }
@@ -53,7 +53,7 @@ require("lazy").setup({
       },
       config = true
     },
-    { 'nvim-tree/nvim-tree.lua' }
+    -- { 'nvim-tree/nvim-tree.lua' }
   },
   install = { 
       colorscheme = { "ayu" }

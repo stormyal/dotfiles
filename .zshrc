@@ -1,3 +1,4 @@
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -71,15 +72,7 @@ setopt autocd
 # ls colorful and stuff
 export CLICOLOR=1
 
-# =========================================================
-# ================== ZSH DIRECTORY STACK ==================
-# =========================================================
-# copied from https://thevaluable.dev/zsh-install-configure-mouseless/
-setopt AUTO_PUSHD           # Push the current directory visited on the stack.
-setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
-setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
-alias d='dirs -v'
-for index ({0..9}) alias "$index"="cd +${index}"; unset index
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
