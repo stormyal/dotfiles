@@ -15,8 +15,18 @@ require("lazy").setup({
           vim.cmd([[colorscheme ayu-dark]])
         end,
     },
-    -- { "nvim-telescope/telescope.nvim", dependencies = { 'nvim-lua/plenary.nvim' } },
-    -- { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+     {
+        'maxmx03/solarized.nvim',
+        lazy = false,
+        priority = 1000,
+        -- config = function()
+        --   vim.o.background = 'dark' -- or 'light'
+        --
+        --   vim.cmd.colorscheme 'solarized'
+        -- end,
+      },
+    { "nvim-telescope/telescope.nvim", dependencies = { 'nvim-lua/plenary.nvim' } },
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     {
       "ibhagwan/fzf-lua",
       -- optional for icon support
@@ -57,6 +67,20 @@ require("lazy").setup({
     -- { 'nvim-tree/nvim-tree.lua' },
     { 'sindrets/diffview.nvim' }, 
     { 'MagicDuck/grug-far.nvim' }, 
+    { 
+        'f-person/auto-dark-mode.nvim',
+        opts = {
+            update_interval = 1000,
+            set_dark_mode = function()
+              vim.api.nvim_set_option("background", "dark")
+              vim.cmd("colorscheme ayu-dark")
+            end,
+            set_light_mode = function()
+              vim.api.nvim_set_option("background", "light")
+              vim.cmd("colorscheme solarized")
+            end,
+          },
+      },
   },
   install = { 
       colorscheme = { "ayu" }
