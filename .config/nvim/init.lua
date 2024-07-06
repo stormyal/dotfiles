@@ -99,47 +99,8 @@ require('lualine').setup {
   extensions = {}
 }
 
-
--- vim.g.loaded_netrw = 1
--- vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
--- vim.g.neo_tree_use_libuv_file_watcher = true
 
-
-require("nvim-tree").setup({
-    sync_root_with_cwd = true,
-  sort = {
-    sorter = "case_sensitive",
-  },
-  view = {
-    width = 30,
-    side = 'right'
-  },
-  renderer = {
-    group_empty = true,
-  },
-  filters = {
-    dotfiles = true,
-  },
-})
-
-
--- vim.api.nvim_create_autocmd("User", {
---   pattern = "NeogitStatusRefreshed",
---   callback = function()
---     require("neo-tree.sources.filesystem.commands").refresh(require("neo-tree.sources.manager").get_state("filesystem"))
---   end
--- })
---
--- require("neo-tree").setup({
---   filesystem = {
---     group_empty_dirs = true,
---     use_libuv_file_watcher = true,
---     -- hijack_netrw_behavior = "open_default"
---   }
--- })
---
---
 require('gitsigns').setup {
   signs = {
     add          = { text = '┃' },
@@ -234,12 +195,23 @@ require('gitsigns').setup {
   end
 }
 
-vim.api.nvim_create_autocmd("TabEnter", {
-    pattern = "*",
-    command = "NvimTreeRefresh",
+require("neo-tree").setup({
+  filesystem = {
+    group_empty_dirs = true,
+    use_libuv_file_watcher = true,
+    -- hijack_netrw_behavior = "open_default"
+  }
 })
 
+local function fire_git_event()
+    require("neo-tree.events").fire_event(require("neo-tree.events").GIT_EVENT)
+end
+
+vim.api.nvim_create_autocmd("TabEnter", {
+    pattern = "*",
+    callback = fire_git_event,
+    -- command = "NvimTreeRefresh",
+})
 
 vim.g.maplocalleader = ','
-require('grug-far').setup({
-});
+require('grug-far').setup({ });

@@ -1,7 +1,8 @@
 vim.g.mapleader = ' '
 -- local builtin = require('telescope.builtin')
 
-vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<CR>')
+-- vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<leader>t', ':Neotree toggle right<CR>')
 vim.keymap.set('n', '<leader>r', ':GrugFar<CR>')
 vim.keymap.set('n', '<leader>R', ":lua require('grug-far').grug_far({ prefills = { flags = vim.fn.expand('%'), search = vim.fn.expand('<cword>') } })<CR>")
 -- vim.keymap.set('n', '<leader>o', builtin.find_files)
@@ -18,8 +19,8 @@ vim.keymap.set('n', '<leader><s-o>', ":lua require('oil').open()<cr>")
 vim.keymap.set('n', '<leader>f', ":FzfLua live_grep<cr>")
 vim.keymap.set('n', '<leader>F', ":FzfLua grep_cword<cr>")
 vim.keymap.set('n', '<leader>f', ":lua require('fzf-lua').grep_project()<cr>")
-vim.keymap.set('n', '<leader>b', "FzfLua buffers<cr>")
-vim.keymap.set('n', '<leader>h', "FzfLua helptags<cr>")
+vim.keymap.set('n', '<leader>b', ":FzfLua buffers<cr>")
+vim.keymap.set('n', '<leader>h', ":FzfLua helptags<cr>")
 
 vim.keymap.set('n', '<c-h>', '<c-w>h')
 vim.keymap.set('n', '<c-j>', '<c-w>j')

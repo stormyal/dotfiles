@@ -12,7 +12,7 @@ require("lazy").setup({
     { "Shatur/neovim-ayu",
         config = function()
           -- load the colorscheme here
-          vim.cmd([[colorscheme ayu]])
+          vim.cmd([[colorscheme ayu-dark]])
         end,
     },
     -- { "nvim-telescope/telescope.nvim", dependencies = { 'nvim-lua/plenary.nvim' } },
@@ -54,7 +54,7 @@ require("lazy").setup({
     --   config = true
     -- },
     { 'lewis6991/gitsigns.nvim' },
-    { 'nvim-tree/nvim-tree.lua' },
+    -- { 'nvim-tree/nvim-tree.lua' },
     { 'sindrets/diffview.nvim' }, 
     { 'MagicDuck/grug-far.nvim' }, 
   },
