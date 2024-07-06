@@ -4,6 +4,7 @@ Dependencies:
 git clone https://github.com/jandamm/zgenom.git "${HOME}/.zgenom"
 brew install fzf
 brew install ripgrep
+/op/homebrew/opt/fzf/install
 ```
 
 links:
