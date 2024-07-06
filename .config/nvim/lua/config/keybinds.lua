@@ -1,10 +1,12 @@
 vim.g.mapleader = ' '
 -- local builtin = require('telescope.builtin')
 
-vim.keymap.set('n', '<leader>t', ':Neotree right toggle<CR>')
+vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<leader>r', ':GrugFar<CR>')
+vim.keymap.set('n', '<leader>R', ":lua require('grug-far').grug_far({ prefills = { flags = vim.fn.expand('%'), search = vim.fn.expand('<cword>') } })<CR>")
 -- vim.keymap.set('n', '<leader>o', builtin.find_files)
 vim.keymap.set('n', '<leader>o', ":FzfLua files<cr>")
-vim.keymap.set('n', '<leader><s-o>', ":lua require('oil').open_float('.')<cr>")
+vim.keymap.set('n', '<leader><s-o>', ":lua require('oil').open()<cr>")
 -- vim.keymap.set('n', '<leader>f', function()
 --   builtin.grep_string{
 --     path_display = { 'smart' },
