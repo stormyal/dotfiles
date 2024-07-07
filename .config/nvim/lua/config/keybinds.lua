@@ -16,9 +16,9 @@ vim.keymap.set('n', '<leader><s-o>', ":lua require('oil').open()<cr>")
 --     search = '',
 --   }
 -- end)
-vim.keymap.set('n', '<leader>f', ":FzfLua live_grep<cr>")
-vim.keymap.set('n', '<leader>F', ":FzfLua grep_cword<cr>")
+-- vim.keymap.set('n', '<leader>f', ":FzfLua live_grep<cr>")
 vim.keymap.set('n', '<leader>f', ":lua require('fzf-lua').grep_project()<cr>")
+vim.keymap.set('n', '<leader>F', ":FzfLua grep_cword<cr>")
 vim.keymap.set('n', '<leader>b', ":FzfLua buffers<cr>")
 vim.keymap.set('n', '<leader>h', ":FzfLua helptags<cr>")
 
