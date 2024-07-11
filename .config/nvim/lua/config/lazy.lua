@@ -25,17 +25,35 @@ require("lazy").setup({
         --   vim.cmd.colorscheme 'solarized'
         -- end,
       },
-    { "nvim-telescope/telescope.nvim", dependencies = { 'nvim-lua/plenary.nvim' } },
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    -- { "nvim-telescope/telescope.nvim", dependencies = { 'nvim-lua/plenary.nvim' } },
+    -- { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     {
       "ibhagwan/fzf-lua",
       -- optional for icon support
       dependencies = { "nvim-tree/nvim-web-devicons" },
       config = function()
         -- calling `setup` is optional for customization
-        require("fzf-lua").setup({'telescope', fzf_colors = true })
+        require("fzf-lua").setup({'telescope', fzf_colors = false })
       end
     },
+
+
+    {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+    },
+
+
+
+
+
+
+
+
+
+
+
     { 'stevearc/oil.nvim', dependencies = { "nvim-tree/nvim-web-devicons" } },
     {
         "nvim-neo-tree/neo-tree.nvim",
@@ -80,7 +98,16 @@ require("lazy").setup({
               vim.cmd("colorscheme solarized")
             end,
           },
+  },
+  {
+      'stevearc/aerial.nvim',
+      opts = {},
+      -- Optional dependencies
+      dependencies = {
+         "nvim-treesitter/nvim-treesitter",
+         "nvim-tree/nvim-web-devicons"
       },
+    },
   },
   install = { 
       colorscheme = { "ayu" }

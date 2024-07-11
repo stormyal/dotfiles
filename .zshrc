@@ -15,9 +15,9 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 source "${HOME}/.zgenom/zgenom.zsh"
 zgenom autoupdate
 if ! zgenom saved; then
+    zgenom load jeffreytse/zsh-vi-mode
     zgenom load zsh-users/zsh-completions
     zgenom load zsh-users/zsh-syntax-highlighting
-    zgenom load jeffreytse/zsh-vi-mode
     zgenom load zsh-users/zsh-history-substring-search
     zgenom load romkatv/powerlevel10k powerlevel10k
 fi
@@ -42,9 +42,9 @@ export VISUAL="nvim"
 export ZVM_VI_EDITOR="nvim"
 
 # command history
-export HISTSIZE=10000000
-export SAVEHIST=10000000
-setopt share_history
+export HISTSIZE=1000000
+export SAVEHIST=1000000
+setopt no_share_history
 setopt hist_ignore_dups
 HISTORY_SUBSTRING_SEARCH_FUZZY='true'
 bindkey -M viins "^[[A" history-substring-search-up
