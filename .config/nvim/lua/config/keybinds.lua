@@ -41,7 +41,7 @@ vim.keymap.set('n', '<leader>e?', ':e ~/notes/code/vim_cheatsheet.md<CR>')
 
 
 local function create_new_note()
-  local notes_dir = vim.fn.expand("~/notes/inbox")
+  local notes_dir = vim.fn.expand("~/notes/")
   if vim.fn.isdirectory(notes_dir) == 0 then
     vim.fn.mkdir(notes_dir, "p")
   end

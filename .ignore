@@ -1,1 +1,4 @@
 node_modules/
+Library/
+.cache/
+.Trash/
