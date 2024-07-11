@@ -32,6 +32,7 @@ export PATH=/opt/homebrew/bin:$PATH
 # ==========================================
 alias v="nvim"
 alias cm="cmatrix"
+alias gt="git log --oneline --graph --decorate --all"
 
 # ============================================
 # ============= CUSTOM SETTINGS ==============
