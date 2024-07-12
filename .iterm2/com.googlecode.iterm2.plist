@@ -2173,6 +2173,15 @@
 				<key>Red Component</key>
 				<real>0.93333333333333335</real>
 			</dict>
+			<key>Semantic History</key>
+			<dict>
+				<key>action</key>
+				<string>coprocess</string>
+				<key>editor</key>
+				<string>com.github.atom</string>
+				<key>text</key>
+				<string>echo "nvim +\2 \1"</string>
+			</dict>
 			<key>Send Code When Idle</key>
 			<false/>
 			<key>Shortcut</key>
@@ -2926,7 +2935,7 @@
 			<key>Blur</key>
 			<true/>
 			<key>Blur Radius</key>
-			<real>9.6582280585106375</real>
+			<real>19.855036569148936</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -3690,7 +3699,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.051446143617021267</real>
+			<real>0.052722739361702124</real>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
@@ -3776,6 +3785,8 @@
 	</dict>
 	<key>PreserveWindowSizeWhenTabBarVisibilityChanges</key>
 	<false/>
+	<key>ReportHorizontalScrollEvents</key>
+	<true/>
 	<key>ShowFullScreenTabBar</key>
 	<true/>
 	<key>ShowPaneTitles</key>

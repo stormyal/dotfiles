@@ -38,11 +38,6 @@ require("lazy").setup({
     },
 
 
-    {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
-    },
 
 
 
@@ -83,9 +78,9 @@ require("lazy").setup({
     -- },
     { 'lewis6991/gitsigns.nvim' },
     -- { 'nvim-tree/nvim-tree.lua' },
-    { 'sindrets/diffview.nvim' }, 
-    { 'MagicDuck/grug-far.nvim' }, 
-    { 
+    { 'sindrets/diffview.nvim' },
+    { 'MagicDuck/grug-far.nvim' },
+    {
         'f-person/auto-dark-mode.nvim',
         opts = {
             update_interval = 1000,
@@ -98,18 +93,70 @@ require("lazy").setup({
               vim.cmd("colorscheme solarized")
             end,
           },
-  },
-  {
-      'stevearc/aerial.nvim',
-      opts = {},
-      -- Optional dependencies
-      dependencies = {
-         "nvim-treesitter/nvim-treesitter",
-         "nvim-tree/nvim-web-devicons"
       },
+
+  -- {
+  --     'stevearc/aerial.nvim',
+  --     opts = {},
+  --     -- Optional dependencies
+  --     dependencies = {
+  --        "nvim-treesitter/nvim-treesitter",
+  --        "nvim-tree/nvim-web-devicons"
+  --     },
+  --   },
+
+
+
+  -- LSP stuff
+    {
+        "williamboman/mason.nvim"
     },
+    {
+        "williamboman/mason-lspconfig.nvim"
+    },
+
+    {'neovim/nvim-lspconfig'},
+
+
+
+    {
+      "hrsh7th/nvim-cmp",
+      dependencies = {
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-cmdline',
+      },
+      -- ---@param opts cmp.ConfigSchema
+      -- opts = function(_, opts)
+      --   table.insert(opts.sources, { name = "emoji" })
+      -- end,
+    },
+
+
+
+
+
+
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
+        -- use opts = {} for passing setup options
+        -- this is equalent to setup({}) function
+    }
+
+
+
   },
-  install = { 
+
+
+  --
+  -- {
+  --     'neovim/nvim-lspconfig'
+  --
+  -- },
+  install = {
       colorscheme = { "ayu" }
   },
   -- automatically check for plugin updates

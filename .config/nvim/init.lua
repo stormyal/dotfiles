@@ -5,50 +5,60 @@ o.ignorecase = true
 o.smartcase = true
 o.hlsearch = true
 o.wrap = true
--- o.breakindent = true
-o.tabstop = 4
-o.shiftwidth = 4
+o.linebreak= true
+o.breakindent = true
+-- o.breakindentopt = 'shift:8'
 o.expandtab = true
+o.shiftwidth = 4
+o.tabstop = 4
+o.softtabstop = 4
+o.autoindent = true
+o.smartindent = true
+o.smarttab = true
+
+
 o.clipboard="unnamed,unnamedplus"
 o.termguicolors = true
 o.scrolloff = 3
 o.splitright = true
 o.splitbelow = true
+o.foldmethod="manual"
+-- vim.api.nvim_exec([[
+--   augroup SaveFolds
+--     autocmd!
+--     autocmd BufWinLeave * mkview
+--     autocmd BufWinEnter * silent! loadview
+--   augroup END
+-- ]], false)
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+    pattern = { "*" },
+    command = [[%s/\s\+$//e]],
+})
 
 require("config.lazy")
 require("config.keybinds")
---
--- require('telescope').setup {
---   extensions = {
---     fzf = {
---       fuzzy = true,                    -- false will only do exact matching
---       override_generic_sorter = true,  -- override the generic sorter
---       override_file_sorter = true,     -- override the file sorter
---       case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
---                                        -- the default case_mode is "smart_case"
---     }
---   }
--- }
--- -- To get fzf loaded and working with telescope, you need to call
--- -- load_extension, somewhere after setup function:
--- require('telescope').load_extension('fzf')
+
+
+-----------------------------
 require('ayu').setup({
-    mirage = false,
-    terminal = true,
+	mirage = false,
+	terminal = true,
 })
-require("aerial").setup({
-  -- optionally use on_attach to set keymaps when aerial has attached to a buffer
-  on_attach = function(bufnr)
-    -- Jump forwards/backwards with '{' and '}'
-    vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
-    vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
-  end,
-})
-require("mason").setup()
+
+-- require("aerial").setup({
+--   -- optionally use on_attach to set keymaps when aerial has attached to a buffer
+--   on_attach = function(bufnr)
+--     -- Jump forwards/backwards with '{' and '}'
+--     vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+--     vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+--   end,
+-- })
 -- You probably also want to set a keymap to toggle aerial
-vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+-- vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+
 require("oil").setup({
-     keymaps = {
+    keymaps = {
     ["g?"] = "actions.show_help",
     ["<CR>"] = "actions.select",
     ["<C-s>"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
@@ -67,8 +77,8 @@ require("oil").setup({
     ["g\\"] = "actions.toggle_trash",
   },
     use_default_keymaps = false,
-
 })
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -226,3 +236,131 @@ vim.api.nvim_create_autocmd("TabEnter", {
 
 vim.g.maplocalleader = ','
 require('grug-far').setup({ });
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------
+-- LSP STUFF
+-- -----------------------
+-- vim.lsp.start_client({
+--   name = 'my-server-name',
+--   cmd = {'lua-language-server'},
+--   root_dir = vim.fs.dirname(vim.fs.find({'pyproject.toml', 'setup.py'}, { upward = true })[1]),
+-- })
+--
+
+-- require'lspconfig'.lua_ls.setup{}
+-- local lspconfig = require('lspconfig')
+-- lspconfig.rust_analyzer.setup {
+--   -- Server-specific settings. See `:help lspconfig-setup`
+--   settings = {
+--     ['rust-analyzer'] = {},
+--   },
+-- }
+
+require("mason").setup()
+require("mason-lspconfig").setup()
+
+require'lspconfig'.lua_ls.setup{
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+local cmp = require'cmp'
+
+  cmp.setup({
+    snippet = {
+      -- REQUIRED - you must specify a snippet engine
+      expand = function(args)
+        -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+        vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+      end,
+    },
+    window = {
+      -- completion = cmp.config.window.bordered(),
+      -- documentation = cmp.config.window.bordered(),
+    },
+    mapping = cmp.mapping.preset.insert({
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-/>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.abort(),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+      ['<Tab>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'vsnip' }, -- For vsnip users.
+      -- { name = 'luasnip' }, -- For luasnip users.
+      -- { name = 'ultisnips' }, -- For ultisnips users.
+      -- { name = 'snippy' }, -- For snippy users.
+    }, {
+      { name = 'buffer' },
+    })
+  })
+
+  -- To use git you need to install the plugin petertriho/cmp-git and uncomment lines below
+  -- Set configuration for specific filetype.
+  --[[ cmp.setup.filetype('gitcommit', {
+    sources = cmp.config.sources({
+      { name = 'git' },
+    }, {
+      { name = 'buffer' },
+    })
+ })
+ require("cmp_git").setup() ]]--
+
+  -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline({ '/', '?' }, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    }),
+    matching = { disallow_symbol_nonprefix_matching = false }
+  })
+
+  -- Set up lspconfig.
+  -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
+  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+
+require'lspconfig'.tsserver.setup{ }
+
+require('nvim-autopairs').setup({ })
+
+cmp.event:on(
+  'confirm_done',
+  require('nvim-autopairs.completion.cmp').on_confirm_done()
+)
