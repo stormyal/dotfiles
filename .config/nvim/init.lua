@@ -30,6 +30,8 @@ o.foldmethod="manual"
 --     autocmd BufWinEnter * silent! loadview
 --   augroup END
 -- ]], false)
+--
+
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     pattern = { "*" },
@@ -39,6 +41,22 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 require("config.lazy")
 require("config.keybinds")
 
+-- TODO: TROUBLESHOOT!
+--
+-- vim.api.nvim_set_hl(0, "CurSearch", { bg = "blue", fg="red", underline = true, bold = false })
+-- vim.cmd('highlight CurSearch guifg=red guibg=blue')
+-- vim.autocommands = {
+--   {
+--     { "ColorScheme" },
+--     {
+--       pattern = "*",
+--       callback = function()
+--         -- see ':h nvim_set_hl' for more options
+--         vim.api.nvim_set_hl(0, "CurSearch", { bg = "#282828", underline = true, bold = false })
+--       end,
+--     },
+--   },
+-- }
 
 -----------------------------
 require('ayu').setup({
@@ -270,6 +288,9 @@ require('grug-far').setup({ });
 require("mason").setup()
 require("mason-lspconfig").setup()
 
+-- keep the lsp gutter open so it doesn't change width of window
+o.signcolumn = "yes"
+
 require'lspconfig'.lua_ls.setup{
     settings = {
         Lua = {
@@ -280,6 +301,8 @@ require'lspconfig'.lua_ls.setup{
     }
 }
 
+-- Disable LSP messages but keep letters on the left
+-- vim.diagnostics.config({ virtual_text = false })
 
 
 
@@ -287,8 +310,7 @@ require'lspconfig'.lua_ls.setup{
 
 
 local cmp = require'cmp'
-
-  cmp.setup({
+cmp.setup({
     snippet = {
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
@@ -320,29 +342,29 @@ local cmp = require'cmp'
     }, {
       { name = 'buffer' },
     })
-  })
+})
 
-  -- To use git you need to install the plugin petertriho/cmp-git and uncomment lines below
-  -- Set configuration for specific filetype.
-  --[[ cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-      { name = 'git' },
-    }, {
-      { name = 'buffer' },
-    })
- })
- require("cmp_git").setup() ]]--
+-- To use git you need to install the plugin petertriho/cmp-git and uncomment lines below
+-- Set configuration for specific filetype.
+--[[ cmp.setup.filetype('gitcommit', {
+sources = cmp.config.sources({
+  { name = 'git' },
+}, {
+  { name = 'buffer' },
+})
+})
+require("cmp_git").setup() ]]--
 
-  -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline({ '/', '?' }, {
+-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ '/', '?' }, {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
       { name = 'buffer' }
     }
-  })
+})
 
-  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline(':', {
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
       { name = 'path' }
@@ -350,7 +372,7 @@ local cmp = require'cmp'
       { name = 'cmdline' }
     }),
     matching = { disallow_symbol_nonprefix_matching = false }
-  })
+})
 
   -- Set up lspconfig.
   -- local capabilities = require('cmp_nvim_lsp').default_capabilities()

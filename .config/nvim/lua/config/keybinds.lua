@@ -22,10 +22,10 @@ vim.keymap.set('n', '<leader>F', ":FzfLua grep_cword<cr>")
 vim.keymap.set('n', '<leader>b', ":FzfLua buffers<cr>")
 vim.keymap.set('n', '<leader>h', ":FzfLua helptags<cr>")
 
-vim.keymap.set('n', '<c-h>', '<c-w>h')
-vim.keymap.set('n', '<c-j>', '<c-w>j')
-vim.keymap.set('n', '<c-k>', '<c-w>k')
-vim.keymap.set('n', '<c-l>', '<c-w>l')
+vim.keymap.set('n', '<A-h>', '<c-w>h')
+vim.keymap.set('n', '<A-j>', '<c-w>j')
+vim.keymap.set('n', '<A-k>', '<c-w>k')
+vim.keymap.set('n', '<A-l>', '<c-w>l')
 
 vim.keymap.set('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>')
 
@@ -39,7 +39,36 @@ vim.keymap.set('n', '<leader>ec', ':e ~/code<CR>')
 vim.keymap.set('n', '<leader>en', ':e ~/notes<CR>')
 vim.keymap.set('n', '<leader>e?', ':e ~/notes/code/vim_cheatsheet.md<CR>')
 
+vim.keymap.set('n', '<c-s>', ':nohl<CR>')
 
+-- vim.api.nvim_set_keymap("n", "<C-s>", "", {
+--     callback = function()
+--         vim.o.hlsearch = not vim.o.hlsearch
+--     end,
+--     noremap = true,
+--     silent = true,
+--     desc = "Toggle hlsearch mode.",
+-- })
+vim.api.nvim_set_keymap('n', '<c-h>', ':bprev<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<c-l>', ':bnext<CR>', { noremap = true, silent = true })
+
+
+-- lsp stuff
+vim.keymap.set('n', '<leader>lf', ':lua vim.lsp.buf.code_action()<CR>')
+
+vim.api.nvim_create_user_command("DiagnosticToggle", function()
+	local config = vim.diagnostic.config
+	local vt = config().virtual_text
+	config {
+		virtual_text = not vt,
+		-- underline = not vt,
+		-- signs = not vt,
+	}
+end, { desc = "toggle diagnostic" })
+vim.api.nvim_set_keymap('n', '<leader>lt', ':DiagnosticToggle<CR>', { noremap = true, silent = true })
+
+
+-- CREATE NEW NOTE
 local function create_new_note()
   local notes_dir = vim.fn.expand("~/notes/")
   if vim.fn.isdirectory(notes_dir) == 0 then
