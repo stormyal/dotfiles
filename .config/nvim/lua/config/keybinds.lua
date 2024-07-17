@@ -81,3 +81,5 @@ end
 _G.create_new_note = create_new_note
 vim.api.nvim_set_keymap('n', '<leader>nn', ':lua create_new_note()<CR>', { noremap = true, silent = true })
 
+-- even better
+vim.api.nvim_set_keymap('n', '<leader>en', ':e ~/notes/note.txt<cr>', { noremap = true, silent = true })

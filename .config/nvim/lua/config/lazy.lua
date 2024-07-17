@@ -132,12 +132,6 @@ require("lazy").setup({
       --   table.insert(opts.sources, { name = "emoji" })
       -- end,
     },
-
-
-
-
-
-
     {
         'windwp/nvim-autopairs',
         event = "InsertEnter",
@@ -145,8 +139,6 @@ require("lazy").setup({
         -- use opts = {} for passing setup options
         -- this is equalent to setup({}) function
     },
-
-
     {
         "kylechui/nvim-surround",
         version = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -157,12 +149,6 @@ require("lazy").setup({
             })
         end
     },
-
-
-    {
-
-
-    }
 
 
   },
@@ -178,4 +164,7 @@ require("lazy").setup({
   },
   -- automatically check for plugin updates
   checker = { enabled = true },
+
+
 })
+

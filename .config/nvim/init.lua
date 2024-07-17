@@ -15,7 +15,8 @@ o.softtabstop = 4
 o.autoindent = true
 o.smartindent = true
 o.smarttab = true
-
+vim.o.list = true
+vim.o.listchars = "space:·,tab:>-,trail:~,extends:>,precedes:<,nbsp:+"
 
 o.clipboard="unnamed,unnamedplus"
 o.termguicolors = true
