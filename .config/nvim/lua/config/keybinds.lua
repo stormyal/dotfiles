@@ -2,10 +2,11 @@ vim.g.mapleader = ' '
 
 -- local builtin = require('telescope.builtin')
 
--- vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<CR>')
+-- vim.keymap.set('n', '<leader>T', ':NvimTreeToggle<CR>')
 vim.keymap.set('n', '<leader>t', ':Neotree toggle right<CR>')
 vim.keymap.set('n', '<leader>r', ':GrugFar<CR>')
-vim.keymap.set('n', '<leader>R', ":lua require('grug-far').grug_far({ prefills = { flags = vim.fn.expand('%'), search = vim.fn.expand('<cword>') } })<CR>")
+vim.keymap.set('n', '<leader>R',
+    ":lua require('grug-far').grug_far({ prefills = { flags = vim.fn.expand('%'), search = vim.fn.expand('<cword>') } })<CR>")
 -- vim.keymap.set('n', '<leader>o', builtin.find_files)
 vim.keymap.set('n', '<leader>o', ":FzfLua files<cr>")
 vim.keymap.set('n', '<leader><s-o>', ":lua require('oil').open()<cr>")
@@ -40,7 +41,7 @@ vim.keymap.set('n', '<leader>ec', ':e ~/code<CR>')
 vim.keymap.set('n', '<leader>en', ':e ~/notes<CR>')
 vim.keymap.set('n', '<leader>e?', ':e ~/notes/code/vim_cheatsheet.md<CR>')
 
-vim.keymap.set('n', '<c-s>', ':nohl<CR>')
+vim.keymap.set('n', '<leader><tab>h', ':nohl<CR>')
 
 -- vim.api.nvim_set_keymap("n", "<C-s>", "", {
 --     callback = function()
@@ -60,27 +61,38 @@ vim.api.nvim_set_keymap('n', '<c-l>', ':bnext<CR>', { noremap = true, silent = t
 -- lsp stuff
 vim.keymap.set('n', '<leader>lf', ':lua vim.lsp.buf.code_action()<CR>')
 
+-- vim.keymap.set('n', '<leader>ff', ':lua vim.lsp.buf.format()<CR>')
+
+
+
+
 vim.api.nvim_create_user_command("DiagnosticToggle", function()
-	local config = vim.diagnostic.config
-	local vt = config().virtual_text
-	config {
-		virtual_text = not vt,
-		-- underline = not vt,
-		-- signs = not vt,
-	}
+    local config = vim.diagnostic.config
+    local vt = config().virtual_text
+    config {
+        virtual_text = not vt,
+        -- underline = not vt,
+        -- signs = not vt,
+    }
 end, { desc = "toggle diagnostic" })
-vim.api.nvim_set_keymap('n', '<leader>lt', ':DiagnosticToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader><tab>d', ':DiagnosticToggle<CR>', { noremap = true, silent = true })
+
+
+vim.api.nvim_create_user_command("HiddenCharactersToggle", function()
+    vim.o.list = not vim.o.list
+end, { desc = "toggle rendering of spaces, tabs, etc." })
+vim.api.nvim_set_keymap('n', '<leader><tab>c', ':HiddenCharactersToggle<CR>', { noremap = true, silent = true })
 
 
 -- CREATE NEW NOTE
 local function create_new_note()
-  local notes_dir = vim.fn.expand("~/notes/")
-  if vim.fn.isdirectory(notes_dir) == 0 then
-    vim.fn.mkdir(notes_dir, "p")
-  end
-  local date_format = os.date("%Y%m%d%H%M")
-  local file_path = notes_dir .. "/" .. date_format .. ".md"
-  vim.cmd("edit " .. file_path)
+    local notes_dir = vim.fn.expand("~/notes/")
+    if vim.fn.isdirectory(notes_dir) == 0 then
+        vim.fn.mkdir(notes_dir, "p")
+    end
+    local date_format = os.date("%Y%m%d%H%M")
+    local file_path = notes_dir .. "/" .. date_format .. ".md"
+    vim.cmd("edit " .. file_path)
 end
 _G.create_new_note = create_new_note
 vim.api.nvim_set_keymap('n', '<leader>nn', ':lua create_new_note()<CR>', { noremap = true, silent = true })
