@@ -302,13 +302,12 @@ require'lspconfig'.lua_ls.setup{
     }
 }
 
+
 -- Disable LSP messages but keep letters on the left
 -- vim.diagnostics.config({ virtual_text = false })
 
-
-
-
-
+require'lspconfig'.tsserver.setup{ }
+require'lspconfig'.gopls.setup{}
 
 local cmp = require'cmp'
 cmp.setup({
@@ -378,9 +377,6 @@ cmp.setup.cmdline(':', {
   -- Set up lspconfig.
   -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-
-require'lspconfig'.tsserver.setup{ }
-
 require('nvim-autopairs').setup({ })
 
 cmp.event:on(

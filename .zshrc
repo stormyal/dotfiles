@@ -6,9 +6,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# suppres p10k warning
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-
 # ==========================================
 # ================ PLUGINS =================
 # ==========================================
@@ -46,7 +43,8 @@ export ZVM_VI_EDITOR="nvim"
 # command history
 export HISTSIZE=1000000
 export SAVEHIST=1000000
-setopt no_share_history
+setopt inc_append_history
+setopt share_history
 setopt hist_ignore_dups
 HISTORY_SUBSTRING_SEARCH_FUZZY='true'
 bindkey -M viins "^[[A" history-substring-search-up
@@ -79,6 +77,7 @@ export CLICOLOR=1
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # fzf's command
+export POWERLEVEL9K_INSTANT_PROMPT="quiet"
 export FZF_DEFAULT_COMMAND="fd"
 # CTRL-T's command
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

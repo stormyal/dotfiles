@@ -1,4 +1,5 @@
 vim.g.mapleader = ' '
+
 -- local builtin = require('telescope.builtin')
 
 -- vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<CR>')
@@ -52,6 +53,9 @@ vim.keymap.set('n', '<c-s>', ':nohl<CR>')
 vim.api.nvim_set_keymap('n', '<c-h>', ':bprev<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<c-l>', ':bnext<CR>', { noremap = true, silent = true })
 
+
+-- CMP code action
+-- vim.api.nvim_set_keymap('n', '<c-,>', ':lua vim.lsp.buf.code_action<CR>', { noremap = true, silent = true })
 
 -- lsp stuff
 vim.keymap.set('n', '<leader>lf', ':lua vim.lsp.buf.code_action()<CR>')
