@@ -10,6 +10,8 @@ vim.keymap.set('n', '<leader>R',
 -- vim.keymap.set('n', '<leader>o', builtin.find_files)
 vim.keymap.set('n', '<leader>o', ":FzfLua files<cr>")
 vim.keymap.set('n', '<leader><s-o>', ":lua require('oil').open()<cr>")
+
+vim.keymap.set('n', '<leader>d', ":Diffview")
 -- vim.keymap.set('n', '<leader>f', function()
 --   builtin.grep_string{
 --     path_display = { 'smart' },
