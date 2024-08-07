@@ -24,10 +24,10 @@ vim.keymap.set('n', '<leader>F', ":FzfLua grep_cword<cr>")
 vim.keymap.set('n', '<leader>b', ":FzfLua buffers<cr>")
 vim.keymap.set('n', '<leader>h', ":FzfLua helptags<cr>")
 
-vim.keymap.set('n', '<A-h>', '<c-w>h')
-vim.keymap.set('n', '<A-j>', '<c-w>j')
-vim.keymap.set('n', '<A-k>', '<c-w>k')
-vim.keymap.set('n', '<A-l>', '<c-w>l')
+vim.keymap.set('n', '<c-h>', '<c-w>h')
+vim.keymap.set('n', '<c-j>', '<c-w>j')
+vim.keymap.set('n', '<c-k>', '<c-w>k')
+vim.keymap.set('n', '<c-l>', '<c-w>l')
 
 vim.keymap.set('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>')
 
@@ -51,8 +51,8 @@ vim.keymap.set('n', '<leader><tab>h', ':nohl<CR>')
 --     silent = true,
 --     desc = "Toggle hlsearch mode.",
 -- })
-vim.api.nvim_set_keymap('n', '<c-h>', ':bprev<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<c-l>', ':bnext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<c-s-h>', ':bprev<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<c-s-l>', ':bnext<CR>', { noremap = true, silent = true })
 
 
 -- CMP code action
