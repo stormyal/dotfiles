@@ -17,6 +17,7 @@ o.smartindent = true
 o.smarttab = true
 vim.o.list = false
 vim.o.listchars = "space:·,tab:>-,trail:~,extends:>,precedes:<,nbsp:+"
+vim.o.showbreak = "--->"
 
 o.clipboard = "unnamed,unnamedplus"
 o.termguicolors = true
@@ -33,7 +34,7 @@ o.foldmethod = "manual"
 -- ]], false)
 --
 
-o.updatetime = 100
+o.updatetime = 50
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     pattern = { "*" },
@@ -327,6 +328,22 @@ require 'lspconfig'.lua_ls.setup {
 -- vim.diagnostics.config({ virtual_text = false })
 
 require 'lspconfig'.tsserver.setup {}
+require 'lspconfig'.html.setup {
+    -- settings = {
+    --     html = {
+    --         format = {
+    --             templating = true,
+    --             wrapLineLength = 120,
+    --             wrapAttributes = 'auto',
+    --         },
+    --         hover = {
+    --             documentation = true,
+    --             references = true,
+    --         },
+    --     },
+    -- },
+}
+
 require 'lspconfig'.gopls.setup {}
 
 local cmp = require 'cmp'
@@ -414,7 +431,7 @@ require('nvim-autopairs').setup({})
 
 require 'nvim-treesitter.configs'.setup {
     -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-    -- ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+    ensure_installed = { "lua", "vim", "markdown", "javascript", "go" },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
@@ -452,6 +469,24 @@ require 'nvim-treesitter.configs'.setup {
         -- Instead of true it can also be a list of languages
         additional_vim_regex_highlighting = true,
     },
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+            init_selection = "<cr>", -- set to `false` to disable one of the mappings
+            node_incremental = "<tab>",
+            scope_incremental = "<cr>",
+            node_decremental = "<s-tab>",
+        },
+    },
+    -- incremental_selection = {
+    --     enable = true,
+    --     keymaps = {
+    --         init_selection = '<CR>',
+    --         scope_incremental = '<CR>',
+    --         node_incremental = '<TAB>',
+    --         node_decremental = '<S-TAB>',
+    --     },
+    -- },
 }
 
 
@@ -466,4 +501,25 @@ require('local-highlight').setup({
     min_match_len = 1,
     max_match_len = math.huge,
     highlight_single_match = true,
+})
+
+
+
+
+
+require('nvim-ts-autotag').setup({
+    opts = {
+        -- Defaults
+        enable_close = true,         -- Auto close tags
+        enable_rename = true,        -- Auto rename pairs of tags
+        enable_close_on_slash = true -- Auto close on trailing </
+    },
+    -- Also override individual filetype configs, these take priority.
+    -- Empty by default, useful if one of the "opts" global settings
+    -- doesn't work well in a specific filetype
+    -- per_filetype = {
+    --   ["html"] = {
+    --     enable_close = false
+    --   }
+    -- }
 })

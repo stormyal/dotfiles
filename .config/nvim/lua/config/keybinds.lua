@@ -26,10 +26,28 @@ vim.keymap.set('n', '<leader>F', ":FzfLua grep_cword<cr>")
 vim.keymap.set('n', '<leader>b', ":FzfLua buffers<cr>")
 vim.keymap.set('n', '<leader>h', ":FzfLua helptags<cr>")
 
+-- window navigation
 vim.keymap.set('n', '<c-h>', '<c-w>h')
 vim.keymap.set('n', '<c-j>', '<c-w>j')
 vim.keymap.set('n', '<c-k>', '<c-w>k')
 vim.keymap.set('n', '<c-l>', '<c-w>l')
+
+--
+vim.keymap.set('n', '<a-h>', '^')
+vim.keymap.set('n', '<a-j>', 'gj')
+vim.keymap.set('n', '<a-k>', 'gk')
+vim.keymap.set('n', '<a-l>', '$')
+
+vim.keymap.set('v', '<a-h>', '^')
+vim.keymap.set('v', '<a-j>', 'gj')
+vim.keymap.set('v', '<a-k>', 'gk')
+vim.keymap.set('v', '<a-l>', '$')
+
+vim.keymap.set('o', '<a-h>', '^')
+vim.keymap.set('o', '<a-j>', 'gj')
+vim.keymap.set('o', '<a-k>', 'gk')
+vim.keymap.set('o', '<a-l>', '$')
+
 
 vim.keymap.set('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>')
 
@@ -43,7 +61,8 @@ vim.keymap.set('n', '<leader>ec', ':e ~/code<CR>')
 vim.keymap.set('n', '<leader>en', ':e ~/notes<CR>')
 vim.keymap.set('n', '<leader>e?', ':e ~/notes/code/vim_cheatsheet.md<CR>')
 
-vim.keymap.set('n', '<leader><tab>h', ':nohl<CR>')
+vim.keymap.set('n', '<tab>h', ':nohl<CR>')
+
 
 -- vim.api.nvim_set_keymap("n", "<C-s>", "", {
 --     callback = function()
