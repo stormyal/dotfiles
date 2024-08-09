@@ -52,6 +52,7 @@ vim.keymap.set('o', '<a-l>', '$')
 vim.keymap.set('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>')
 
 vim.keymap.set('n', '<leader>ez', ':e ~/.zshrc<CR>')
+vim.keymap.set('n', '<leader>et', ':e ~/.tmux.conf<CR>')
 vim.keymap.set('n', '<leader>ee', ':e ~/.config/nvim/init.lua<CR>')
 -- vim.keymap.set('n', '<leader>es', ':e ~/.config/nvim/lua/config/settings.lua<CR>')
 vim.keymap.set('n', '<leader>ek', ':e ~/.config/nvim/lua/config/keybinds.lua<CR>')
@@ -96,13 +97,13 @@ vim.api.nvim_create_user_command("DiagnosticToggle", function()
         -- signs = not vt,
     }
 end, { desc = "toggle diagnostic" })
-vim.api.nvim_set_keymap('n', '<leader><tab>d', ':DiagnosticToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<tab>l', ':DiagnosticToggle<CR>', { noremap = true, silent = true })
 
 
 vim.api.nvim_create_user_command("HiddenCharactersToggle", function()
     vim.o.list = not vim.o.list
 end, { desc = "toggle rendering of spaces, tabs, etc." })
-vim.api.nvim_set_keymap('n', '<leader><tab>c', ':HiddenCharactersToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<tab>c', ':HiddenCharactersToggle<CR>', { noremap = true, silent = true })
 
 
 -- CREATE NEW NOTE

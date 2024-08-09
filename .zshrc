@@ -1,3 +1,13 @@
+# ==========================================
+# ================== PATH ==================
+# ==========================================
+export PATH=/opt/homebrew/bin:$PATH
+
+# if [ -z "$TMUX" ]
+# then
+#     # tmux attach -t TMUX || tmux new -s TMUX
+#     tmux
+# fi
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -18,11 +28,6 @@ if ! zgenom saved; then
     zgenom load zsh-users/zsh-history-substring-search
     zgenom load romkatv/powerlevel10k powerlevel10k
 fi
-
-# ==========================================
-# ================== PATH ==================
-# ==========================================
-export PATH=/opt/homebrew/bin:$PATH
 
 # ==========================================
 # ================ ALIASES =================
