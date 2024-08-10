@@ -33,20 +33,20 @@ vim.keymap.set('n', '<c-k>', '<c-w>k')
 vim.keymap.set('n', '<c-l>', '<c-w>l')
 
 --
-vim.keymap.set('n', '<a-h>', '^')
-vim.keymap.set('n', '<a-j>', 'gj')
-vim.keymap.set('n', '<a-k>', 'gk')
-vim.keymap.set('n', '<a-l>', '$')
-
-vim.keymap.set('v', '<a-h>', '^')
-vim.keymap.set('v', '<a-j>', 'gj')
-vim.keymap.set('v', '<a-k>', 'gk')
-vim.keymap.set('v', '<a-l>', '$')
-
-vim.keymap.set('o', '<a-h>', '^')
-vim.keymap.set('o', '<a-j>', 'gj')
-vim.keymap.set('o', '<a-k>', 'gk')
-vim.keymap.set('o', '<a-l>', '$')
+-- vim.keymap.set('n', '<a-h>', '^')
+-- vim.keymap.set('n', '<a-j>', 'gj')
+-- vim.keymap.set('n', '<a-k>', 'gk')
+-- vim.keymap.set('n', '<a-l>', '$')
+--
+-- vim.keymap.set('v', '<a-h>', '^')
+-- vim.keymap.set('v', '<a-j>', 'gj')
+-- vim.keymap.set('v', '<a-k>', 'gk')
+-- vim.keymap.set('v', '<a-l>', '$')
+--
+-- vim.keymap.set('o', '<a-h>', '^')
+-- vim.keymap.set('o', '<a-j>', 'gj')
+-- vim.keymap.set('o', '<a-k>', 'gk')
+-- vim.keymap.set('o', '<a-l>', '$')
 
 
 vim.keymap.set('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>')
@@ -57,10 +57,6 @@ vim.keymap.set('n', '<leader>ee', ':e ~/.config/nvim/init.lua<CR>')
 -- vim.keymap.set('n', '<leader>es', ':e ~/.config/nvim/lua/config/settings.lua<CR>')
 vim.keymap.set('n', '<leader>ek', ':e ~/.config/nvim/lua/config/keybinds.lua<CR>')
 vim.keymap.set('n', '<leader>ep', ':e ~/.config/nvim/lua/config/lazy.lua<CR>')
-
-vim.keymap.set('n', '<leader>ec', ':e ~/code<CR>')
-vim.keymap.set('n', '<leader>en', ':e ~/notes<CR>')
-vim.keymap.set('n', '<leader>e?', ':e ~/notes/code/vim_cheatsheet.md<CR>')
 
 vim.keymap.set('n', '<tab>h', ':nohl<CR>')
 
@@ -73,8 +69,8 @@ vim.keymap.set('n', '<tab>h', ':nohl<CR>')
 --     silent = true,
 --     desc = "Toggle hlsearch mode.",
 -- })
-vim.api.nvim_set_keymap('n', '<c-s-h>', ':bprev<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<c-s-l>', ':bnext<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<c-s-H>', ':bprev<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<c-s-L>', ':bnext<CR>', { noremap = true, silent = true })
 
 
 -- CMP code action
@@ -120,4 +116,4 @@ _G.create_new_note = create_new_note
 vim.api.nvim_set_keymap('n', '<leader>nn', ':lua create_new_note()<CR>', { noremap = true, silent = true })
 
 -- even better
-vim.api.nvim_set_keymap('n', '<leader>en', ':e ~/notes/note.txt<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>en', ':e ~/notes/note.md<cr>', { noremap = true, silent = true })
