@@ -69,8 +69,8 @@ vim.keymap.set('n', '<tab>h', ':nohl<CR>')
 --     silent = true,
 --     desc = "Toggle hlsearch mode.",
 -- })
--- vim.api.nvim_set_keymap('n', '<c-s-H>', ':bprev<CR>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<c-s-L>', ':bnext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<c-H>', ':bprev<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<c-L>', ':bnext<CR>', { noremap = true, silent = true })
 
 
 -- CMP code action
