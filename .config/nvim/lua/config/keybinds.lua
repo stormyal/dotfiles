@@ -58,7 +58,7 @@ vim.keymap.set('n', '<leader>ee', ':e ~/.config/nvim/init.lua<CR>')
 vim.keymap.set('n', '<leader>ek', ':e ~/.config/nvim/lua/config/keybinds.lua<CR>')
 vim.keymap.set('n', '<leader>ep', ':e ~/.config/nvim/lua/config/lazy.lua<CR>')
 
-vim.keymap.set('n', '<tab>h', ':nohl<CR>')
+vim.keymap.set('n', '<leader><leader>h', ':nohl<CR>')
 
 
 -- vim.api.nvim_set_keymap("n", "<C-s>", "", {
@@ -69,8 +69,8 @@ vim.keymap.set('n', '<tab>h', ':nohl<CR>')
 --     silent = true,
 --     desc = "Toggle hlsearch mode.",
 -- })
-vim.api.nvim_set_keymap('n', '<c-H>', ':bprev<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<c-L>', ':bnext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<c-,>', ':bprev<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<c-.>', ':bnext<CR>', { noremap = true, silent = true })
 
 
 -- CMP code action
@@ -93,13 +93,13 @@ vim.api.nvim_create_user_command("DiagnosticToggle", function()
         -- signs = not vt,
     }
 end, { desc = "toggle diagnostic" })
-vim.api.nvim_set_keymap('n', '<tab>l', ':DiagnosticToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader><leader>l', ':DiagnosticToggle<CR>', { noremap = true, silent = true })
 
 
 vim.api.nvim_create_user_command("HiddenCharactersToggle", function()
     vim.o.list = not vim.o.list
 end, { desc = "toggle rendering of spaces, tabs, etc." })
-vim.api.nvim_set_keymap('n', '<tab>c', ':HiddenCharactersToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader><leader>c', ':HiddenCharactersToggle<CR>', { noremap = true, silent = true })
 
 
 -- CREATE NEW NOTE

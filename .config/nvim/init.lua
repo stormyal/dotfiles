@@ -328,6 +328,14 @@ require 'lspconfig'.lua_ls.setup {
 -- vim.diagnostics.config({ virtual_text = false })
 
 require 'lspconfig'.tsserver.setup {}
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+require 'lspconfig'.cssls.setup {
+    capabilities = capabilities,
+}
+
 require 'lspconfig'.html.setup {
     -- settings = {
     --     html = {
@@ -431,7 +439,7 @@ require('nvim-autopairs').setup({})
 
 require 'nvim-treesitter.configs'.setup {
     -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-    ensure_installed = { "html", "lua", "vim", "markdown", "javascript", "go" },
+    ensure_installed = { "html", "lua", "vim", "vimdoc", "luadoc", "markdown", "javascript", "go" },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
