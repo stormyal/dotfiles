@@ -753,6 +753,19 @@
 			<key>Version</key>
 			<integer>2</integer>
 		</dict>
+		<key>0x9-0x40000-0x30</key>
+		<dict>
+			<key>Action</key>
+			<integer>11</integer>
+			<key>Apply Mode</key>
+			<integer>0</integer>
+			<key>Escaping</key>
+			<integer>2</integer>
+			<key>Text</key>
+			<string>0x1B 0x36</string>
+			<key>Version</key>
+			<integer>2</integer>
+		</dict>
 		<key>0xf700-0x300000</key>
 		<dict>
 			<key>Action</key>
@@ -3267,7 +3280,7 @@
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
-			<integer>1</integer>
+			<integer>0</integer>
 			<key>Working Directory</key>
 			<string>/Users/alexsvat</string>
 		</dict>

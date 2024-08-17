@@ -26,61 +26,24 @@ vim.keymap.set('n', '<leader>F', ":FzfLua grep_cword<cr>")
 vim.keymap.set('n', '<leader>b', ":FzfLua buffers<cr>")
 vim.keymap.set('n', '<leader>h', ":FzfLua helptags<cr>")
 
+-- splits
+vim.keymap.set('n', '<C-/>', ':split<CR>', { silent = true })
+vim.keymap.set('n', '<C-\'>', ':vsplit<CR>', { silent = true })
+
 -- window navigation
 vim.keymap.set('n', '<c-h>', '<c-w>h')
 vim.keymap.set('n', '<c-j>', '<c-w>j')
 vim.keymap.set('n', '<c-k>', '<c-w>k')
 vim.keymap.set('n', '<c-l>', '<c-w>l')
 
--- Resize splits using Ctrl + Arrow keys
--- vim.keymap.set('n', '<C-Up>', ':resize +2<CR>')
--- vim.keymap.set('n', '<C-Down>', ':resize -2<CR>')
--- vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>')
--- vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>')
-
--- Resize splits using Alt + Arrow keys
-vim.keymap.set('n', '^[ [1;3A', ':resize +2<CR>')          -- Alt + Up
-vim.keymap.set('n', '^[ [1;3B', ':resize -2<CR>')          -- Alt + Down
-vim.keymap.set('n', '^[ [1;3D', ':vertical resize -2<CR>') -- Alt + Left
-vim.keymap.set('n', '^[ [1;3C', ':vertical resize +2<CR>') -- Alt + Right
-
---
--- vim.keymap.set('n', '<a-h>', '^')
--- vim.keymap.set('n', '<a-j>', 'gj')
--- vim.keymap.set('n', '<a-k>', 'gk')
--- vim.keymap.set('n', '<a-l>', '$')
---
--- vim.keymap.set('v', '<a-h>', '^')
--- vim.keymap.set('v', '<a-j>', 'gj')
--- vim.keymap.set('v', '<a-k>', 'gk')
--- vim.keymap.set('v', '<a-l>', '$')
---
--- vim.keymap.set('o', '<a-h>', '^')
--- vim.keymap.set('o', '<a-j>', 'gj')
--- vim.keymap.set('o', '<a-k>', 'gk')
--- vim.keymap.set('o', '<a-l>', '$')
-
-
 vim.keymap.set('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>')
-
 vim.keymap.set('n', '<leader>ez', ':e ~/.zshrc<CR>')
 vim.keymap.set('n', '<leader>et', ':e ~/.tmux.conf<CR>')
 vim.keymap.set('n', '<leader>ee', ':e ~/.config/nvim/init.lua<CR>')
--- vim.keymap.set('n', '<leader>es', ':e ~/.config/nvim/lua/config/settings.lua<CR>')
 vim.keymap.set('n', '<leader>ek', ':e ~/.config/nvim/lua/config/keybinds.lua<CR>')
 vim.keymap.set('n', '<leader>ep', ':e ~/.config/nvim/lua/config/lazy.lua<CR>')
 
 vim.keymap.set('n', '<leader><leader>h', ':nohl<CR>')
-
-
--- vim.api.nvim_set_keymap("n", "<C-s>", "", {
---     callback = function()
---         vim.o.hlsearch = not vim.o.hlsearch
---     end,
---     noremap = true,
---     silent = true,
---     desc = "Toggle hlsearch mode.",
--- })
 vim.api.nvim_set_keymap('n', '<c-,>', ':bprev<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<c-.>', ':bnext<CR>', { noremap = true, silent = true })
 
