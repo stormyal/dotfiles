@@ -187,6 +187,15 @@ require("lazy").setup({
                     desc = "Buffer Local Keymaps (which-key)",
                 },
             },
+        },
+        {
+            "pogyomo/winresize.nvim",
+        },
+        {
+            "pogyomo/submode.nvim",
+            lazy = true,
+            -- (recommended) specify version to prevent unexpected change.
+            -- version = "6.0.0",
         }
 
     },

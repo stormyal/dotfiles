@@ -49,8 +49,10 @@ export ZVM_VI_EDITOR="nvim"
 export HISTSIZE=1000000
 export SAVEHIST=1000000
 setopt inc_append_history
-setopt share_history
+# setopt share_history
 setopt hist_ignore_dups
+unsetopt share_history
+setopt no_share_history
 HISTORY_SUBSTRING_SEARCH_FUZZY='true'
 bindkey -M viins "^[[A" history-substring-search-up
 bindkey -M viins "^[[B" history-substring-search-down
@@ -113,4 +115,7 @@ autoload -U compinit && compinit   # load + start completion
 zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
 
 alias list_colors='for i in {0..255}; do printf "\x1b[38;5;%dmcolour%d\x1b[0m\n" $i $i; done'
+
+alias zel='zellij'
+
 
