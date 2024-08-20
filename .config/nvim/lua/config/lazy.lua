@@ -8,7 +8,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Setup lazy.nvim
 require("lazy").setup({
-    checker = { enabled = true, frequency = 7 * 86400 },
+    checker = { enabled = true, frequency = 600000 },
     spec = {
         {
             "Shatur/neovim-ayu",
