@@ -1,6 +1,5 @@
 vim.g.mapleader = ' '
 
--- local builtin = require('telescope.builtin')
 
 -- vim.keymap.set('n', '<leader>T', ':NvimTreeToggle<CR>')
 vim.keymap.set('n', '<leader>t', ':Neotree toggle right<CR>')
@@ -44,6 +43,7 @@ vim.keymap.set('n', '<leader>ek', ':e ~/.config/nvim/lua/config/keybinds.lua<CR>
 vim.keymap.set('n', '<leader>ep', ':e ~/.config/nvim/lua/config/lazy.lua<CR>')
 
 vim.keymap.set('n', '<leader><leader>h', ':nohl<CR>')
+vim.api.nvim_set_keymap('n', '<leader><leader>w', ':set wrap!<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<c-,>', ':bprev<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<c-.>', ':bnext<CR>', { noremap = true, silent = true })
 

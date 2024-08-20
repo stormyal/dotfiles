@@ -24,8 +24,25 @@ o.termguicolors = true
 o.scrolloff = 3
 o.splitright = true
 o.splitbelow = true
-o.foldmethod = "manual"
+-- https://www.jackfranklin.co.uk/blog/code-folding-in-vim-neovim/
+-- o.foldmethod = "expr"
+-- vim.opt.foldexvim.o.foldcolumn = 'auto:9'pr = "v:lua.vim.treesitter.foldexpr()"
+-- vim.opt.foldtvim.o.foldcolumn = 'auto:9'ext = "v:lua.vim.treesitter.foldtext()"
+-- o.foldcolumn = "0"
+-- o.foldtext = ""
+-- vim.opt.foldlevel = 99
+-- vim.opt.foldlevelstart = 1
+-- vim.opt.foldnestmax = 3
+
+vim.o.foldcolumn = '1' -- '0' is not bad
+vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+
+-- vim.o.statuscolumn = '%=%l%s%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? "▼" : "⏵") : " " }'
 -- vim.api.nvim_exec([[
+-- .o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 --   augroup SaveFolds
 --     autocmd!
 --     autocmd BufWinLeave * mkview
@@ -298,7 +315,9 @@ require('grug-far').setup({});
 -- }
 
 require("mason").setup()
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = { "lua_ls", "cssls", "gopls", "html", "htmx", "tsserver" },
+})
 
 -- keep the lsp gutter open so it doesn't change width of window
 o.signcolumn = "yes"
@@ -331,7 +350,6 @@ require 'lspconfig'.tsserver.setup {}
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-
 require 'lspconfig'.cssls.setup {
     capabilities = capabilities,
 }
@@ -547,3 +565,15 @@ submode.create("WinResize", {
         register("l", function() resize(0, 2, "right") end)
     end,
 })
+
+require('ufo').setup({
+
+
+
+    provider_selector = function(bufnr, filetype, buftype)
+        return { 'treesitter', 'indent' }
+    end
+})
+
+
+-- require('neoscroll').setup({ mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>' } })

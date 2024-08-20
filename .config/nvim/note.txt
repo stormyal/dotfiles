@@ -1,0 +1,7 @@
+
+:TSDisable highlight
+:TSEnable highlight
+
+
+z=
+choose spelling

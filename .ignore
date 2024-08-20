@@ -1,4 +1,9 @@
 node_modules/
 Library/
+Movies/
+Downloads/
+Pictures/
+Music/
 .cache/
 .Trash/
+go/
