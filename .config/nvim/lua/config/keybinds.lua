@@ -23,7 +23,7 @@ vim.keymap.set('n', '<leader>d', ":Diffview")
 vim.keymap.set('n', '<leader>f', ":lua require('fzf-lua').grep_project()<cr>")
 vim.keymap.set('n', '<leader>F', ":FzfLua grep_cword<cr>")
 vim.keymap.set('n', '<leader>b', ":FzfLua buffers<cr>")
-vim.keymap.set('n', '<leader>h', ":FzfLua helptags<cr>")
+-- vim.keymap.set('n', '<leader>h', ":FzfLua helptags<cr>")
 
 -- splits
 vim.keymap.set('n', '<C-/>', ':split<CR>', { silent = true })
@@ -51,7 +51,7 @@ vim.api.nvim_set_keymap('n', '<c-.>', ':bnext<CR>', { noremap = true, silent = t
 -- vim.api.nvim_set_keymap('n', '<c-,>', ':lua vim.lsp.buf.code_action<CR>', { noremap = true, silent = true })
 
 -- lsp stuff
-vim.keymap.set('n', '<leader>lf', ':lua vim.lsp.buf.code_action()<CR>')
+vim.keymap.set('n', '<leader>L', ':lua vim.lsp.buf.code_action()<CR>')
 
 -- vim.keymap.set('n', '<leader>ff', ':lua vim.lsp.buf.format()<CR>')
 
@@ -61,13 +61,47 @@ vim.keymap.set('n', '<leader>lf', ':lua vim.lsp.buf.code_action()<CR>')
 vim.api.nvim_create_user_command("DiagnosticToggle", function()
     local config = vim.diagnostic.config
     local vt = config().virtual_text
+    local u = config().underline
+    local s = config().signs
     config {
-        virtual_text = not vt,
-        -- underline = not vt,
-        -- signs = not vt,
+        -- virtual_text = not vt,
+        underline = not u,
+        signs = not s,
     }
 end, { desc = "toggle diagnostic" })
 vim.api.nvim_set_keymap('n', '<leader><leader>l', ':DiagnosticToggle<CR>', { noremap = true, silent = true })
+
+
+-- https://www.reddit.com/r/neovim/comments/r9q0d9/how_do_i_make_these_lsp_diagnostics_readable/
+vim.diagnostic.config({
+    virtual_text = false, -- Turn off inline diagnostics
+})
+
+-- Use this if you want it to automatically show all diagnostics on the
+-- current line in a floating window. Personally, I find this a bit
+-- distracting and prefer to manually trigger it (see below). The
+-- CursorHold event happens when after `updatetime` milliseconds. The
+-- default is 4000 which is much too long
+-- vim.cmd('autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()')
+-- vim.o.updatetime = 300
+
+-- Show all diagnostics on current line in floating window
+vim.api.nvim_set_keymap(
+    'n', '<Leader>l', ':lua vim.diagnostic.open_float()<CR>',
+    { noremap = true, silent = true }
+)
+-- Go to next diagnostic (if there are multiple on the same line, only shows
+-- one at a time in the floating window)
+-- vim.api.nvim_set_keymap(
+--     'n', '<Leader>n', ':lua vim.diagnostic.goto_next()<CR>',
+--     { noremap = true, silent = true }
+-- )
+-- -- Go to prev diagnostic (if there are multiple on the same line, only shows
+-- -- one at a time in the floating window)
+-- vim.api.nvim_set_keymap(
+--     'n', '<Leader>p', ':lua vim.diagnostic.goto_prev()<CR>',
+--     { noremap = true, silent = true }
+-- )
 
 
 vim.api.nvim_create_user_command("HiddenCharactersToggle", function()
@@ -92,6 +126,30 @@ vim.api.nvim_set_keymap('n', '<leader>nn', ':lua create_new_note()<CR>', { norem
 -- even better
 vim.api.nvim_set_keymap('n', '<leader>en', ':e ~/notes/note.md<cr>', { noremap = true, silent = true })
 
+
+
+-- zen mode
+local function zen_mode()
+    require('zen-mode').toggle({
+        window = {
+            width = .5,
+            options = {
+                signcolumn = "no",      -- disable signcolumn
+                number = false,         -- disable number column
+                relativenumber = false, -- disable relative numbers
+                cursorline = false,     -- disable cursorline
+                -- cursorcolumn = false, -- disable cursor column
+                foldcolumn = "0",       -- disable fold column
+                -- list = false, -- disable whitespace characters
+            },
+        },
+        plugin = {
+            tmux = { enabled = false }
+        }
+
+    })
+end
+vim.keymap.set('n', '<leader>z', zen_mode)
 
 
 

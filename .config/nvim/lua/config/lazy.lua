@@ -244,11 +244,28 @@ require("lazy").setup({
             { "anuvyklack/fold-preview.nvim", dependencies = "anuvyklack/keymap-amend.nvim", config = true },
         },
 
-
+        --
+        -- {
+        --     "karb94/neoscroll.nvim"
+        -- },
+        --
+        --
+        -- {
+        --     "ray-x/lsp_signature.nvim",
+        --     event = "VeryLazy",
+        --     opts = {},
+        --     config = function(_, opts) require 'lsp_signature'.setup(opts) end
+        -- }
+        --
+        --
         {
-            "karb94/neoscroll.nvim"
+            "folke/zen-mode.nvim",
+            opts = {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
         }
-
     },
 
 

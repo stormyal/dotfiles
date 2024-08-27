@@ -40,6 +40,8 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.cmd("set foldopen-=block") -- skip over folds
+-- vim.cmd("set foldfix") -- skip over folds
+-- vim.o.foldfix = true
 -- vim.cmd([[hi FoldColumn guifg=red]])
 vim.cmd([[autocmd ColorScheme * hi FoldColumn guifg=#333333]])
 
@@ -404,6 +406,7 @@ cmp.setup({
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
+        -- { name = 'nvim_lsp_signature_help' },
         { name = 'vsnip' }, -- For vsnip users.
         -- { name = 'luasnip' }, -- For luasnip users.
         -- { name = 'ultisnips' }, -- For ultisnips users.
@@ -582,5 +585,18 @@ require('ufo').setup({
     end
 })
 
+
+-- require "lsp_signature".setup({
+--
+--
+-- })
+-- vim.keymap.set({ 'n' }, '<C-k>', function()
+--     require('lsp_signature').toggle_float_win()
+-- end, { silent = true, noremap = true, desc = 'toggle signature' })
+--
+-- vim.keymap.set({ 'n' }, '<Leader>k', function()
+--     vim.lsp.buf.signature_help()
+-- end, { silent = true, noremap = true, desc = 'toggle signature' })
+--
 
 -- require('neoscroll').setup({ mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>' } })
