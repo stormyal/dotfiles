@@ -70,13 +70,6 @@ vim.api.nvim_create_user_command("DiagnosticToggle", function()
     }
 end, { desc = "toggle diagnostic" })
 vim.api.nvim_set_keymap('n', '<leader><leader>l', ':DiagnosticToggle<CR>', { noremap = true, silent = true })
-
-
--- https://www.reddit.com/r/neovim/comments/r9q0d9/how_do_i_make_these_lsp_diagnostics_readable/
-vim.diagnostic.config({
-    virtual_text = false, -- Turn off inline diagnostics
-})
-
 -- Use this if you want it to automatically show all diagnostics on the
 -- current line in a floating window. Personally, I find this a bit
 -- distracting and prefer to manually trigger it (see below). The
@@ -92,36 +85,36 @@ vim.api.nvim_set_keymap(
 )
 -- Go to next diagnostic (if there are multiple on the same line, only shows
 -- one at a time in the floating window)
--- vim.api.nvim_set_keymap(
---     'n', '<Leader>n', ':lua vim.diagnostic.goto_next()<CR>',
---     { noremap = true, silent = true }
--- )
+vim.api.nvim_set_keymap(
+    'n', '<Leader>n', ':lua vim.diagnostic.goto_next()<CR>',
+    { noremap = true, silent = true }
+)
 -- -- Go to prev diagnostic (if there are multiple on the same line, only shows
 -- -- one at a time in the floating window)
--- vim.api.nvim_set_keymap(
---     'n', '<Leader>p', ':lua vim.diagnostic.goto_prev()<CR>',
---     { noremap = true, silent = true }
--- )
+vim.api.nvim_set_keymap(
+    'n', '<Leader>p', ':lua vim.diagnostic.goto_prev()<CR>',
+    { noremap = true, silent = true }
+)
 
 
 vim.api.nvim_create_user_command("HiddenCharactersToggle", function()
     vim.o.list = not vim.o.list
 end, { desc = "toggle rendering of spaces, tabs, etc." })
 vim.api.nvim_set_keymap('n', '<leader><leader>c', ':HiddenCharactersToggle<CR>', { noremap = true, silent = true })
-
-
--- CREATE NEW NOTE
-local function create_new_note()
-    local notes_dir = vim.fn.expand("~/notes/")
-    if vim.fn.isdirectory(notes_dir) == 0 then
-        vim.fn.mkdir(notes_dir, "p")
-    end
-    local date_format = os.date("%Y%m%d%H%M")
-    local file_path = notes_dir .. "/" .. date_format .. ".md"
-    vim.cmd("edit " .. file_path)
-end
-_G.create_new_note = create_new_note
-vim.api.nvim_set_keymap('n', '<leader>nn', ':lua create_new_note()<CR>', { noremap = true, silent = true })
+--
+--
+-- -- CREATE NEW NOTE
+-- local function create_new_note()
+--     local notes_dir = vim.fn.expand("~/notes/")
+--     if vim.fn.isdirectory(notes_dir) == 0 then
+--         vim.fn.mkdir(notes_dir, "p")
+--     end
+--     local date_format = os.date("%Y%m%d%H%M")
+--     local file_path = notes_dir .. "/" .. date_format .. ".md"
+--     vim.cmd("edit " .. file_path)
+-- end
+-- _G.create_new_note = create_new_note
+-- vim.api.nvim_set_keymap('n', '<leader>nn', ':lua create_new_note()<CR>', { noremap = true, silent = true })
 
 -- even better
 vim.api.nvim_set_keymap('n', '<leader>en', ':e ~/notes/note.md<cr>', { noremap = true, silent = true })

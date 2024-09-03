@@ -41,17 +41,28 @@ require("lazy").setup({
 
 
 
-
-
-
-
-
-
-
-
-
-
-        { 'stevearc/oil.nvim',      dependencies = { "nvim-tree/nvim-web-devicons" } },
+        {
+            "stevearc/oil.nvim",
+            opts = {},
+            dependencies = { "nvim-tree/nvim-web-devicons" },
+            config = function()
+                require("oil").setup({
+                    default_file_explorer = true,
+                    delete_to_trash = true,
+                    skip_confirm_for_simple_edits = true,
+                    view_options = {
+                        show_hidden = true,
+                        natural_order = true,
+                        is_always_hidden = function(name, _)
+                            return name == '..' or name == '.git'
+                        end,
+                    },
+                    win_options = {
+                        wrap = true,
+                    }
+                })
+            end,
+        },
         {
             "nvim-neo-tree/neo-tree.nvim",
             branch = "v3.x",
@@ -265,6 +276,16 @@ require("lazy").setup({
                 -- or leave it empty to use the default settings
                 -- refer to the configuration section below
             }
+        },
+
+        {
+            'stevearc/aerial.nvim',
+            opts = {},
+            -- Optional dependencies
+            dependencies = {
+                "nvim-treesitter/nvim-treesitter",
+                "nvim-tree/nvim-web-devicons"
+            },
         }
     },
 
