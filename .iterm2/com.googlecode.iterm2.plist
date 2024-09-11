@@ -867,6 +867,8 @@
 	<true/>
 	<key>LeftTabBarWidth</key>
 	<real>114</real>
+	<key>NaturalScrollingAffectsHorizontalMouseReporting</key>
+	<true/>
 	<key>NeverWarnAboutShortLivedSessions_D5973455-C2B4-47FE-A4B7-C66E95158919</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_D5973455-C2B4-47FE-A4B7-C66E95158919_selection</key>
