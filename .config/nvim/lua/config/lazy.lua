@@ -286,7 +286,25 @@ require("lazy").setup({
                 "nvim-treesitter/nvim-treesitter",
                 "nvim-tree/nvim-web-devicons"
             },
-        }
+        },
+
+
+
+        { 'hiphish/rainbow-delimiters.nvim' },
+
+
+        {
+            'numToStr/Comment.nvim',
+            opts = {
+                -- add any options here
+            }
+        },
+        {
+            'JoosepAlviste/nvim-ts-context-commentstring'
+        },
+
+        { 'edluffy/hologram.nvim' }
+
     },
 
 

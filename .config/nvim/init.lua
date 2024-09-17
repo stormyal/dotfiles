@@ -1,3 +1,8 @@
+if vim.g.vscode then
+    vim.opt.clipboard = "unnamed,unnamedplus"
+    return
+end
+
 local o = vim.opt
 o.number = true
 o.relativenumber = true
@@ -620,4 +625,45 @@ vim.diagnostic.config {
         header = false,
         border = _border,
     }
+}
+
+
+local rainbow_delimiters = require 'rainbow-delimiters'
+
+vim.g.rainbow_delimiters = {
+    strategy = {
+        [''] = rainbow_delimiters.strategy['global'],
+        vim = rainbow_delimiters.strategy['local'],
+    },
+    query = {
+        [''] = 'rainbow-delimiters',
+        lua = 'rainbow-blocks',
+        -- tsx = 'rainbow-tags-react',
+        tsx = 'rainbow-parens',
+
+    },
+    priority = {
+        [''] = 110,
+        lua = 210,
+    },
+    highlight = {
+        'RainbowDelimiterBlue',
+        'RainbowDelimiterViolet',
+        'RainbowDelimiterYellow',
+        'RainbowDelimiterOrange',
+        'RainbowDelimiterGreen',
+        -- 'RainbowDelimiterCyan',
+        -- 'RainbowDelimiterRed',
+    },
+}
+
+
+require('ts_context_commentstring').setup {
+    enable_autocmd = false,
+}
+require('Comment').setup {
+    pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+}
+require('hologram').setup {
+    auto_display = true -- WIP automatic markdown image display, may be prone to breaking
 }

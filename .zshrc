@@ -3,6 +3,8 @@
 # ==========================================
 export PATH=/opt/homebrew/bin:$PATH
 
+typeset -g POWERLEVEL9K_TIME_FOREGROUND=160
+
 # if [ -z "$TMUX" ]
 # then
 #     # tmux attach -t TMUX || tmux new -s TMUX
