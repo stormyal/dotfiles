@@ -1,6 +1,7 @@
 if vim.g.vscode then
     vim.opt.clipboard = "unnamed,unnamedplus"
     vim.opt.virtualedit = "onemore"
+    vim.g.fast_cursor_move_acceleration = false
     require("fast-cursor-move")
     return
 end
@@ -8,7 +9,7 @@ end
 local o = vim.opt
 o.number = true
 o.relativenumber = true
-o.egnorecase = true
+o.ignorecase = true
 o.smartcase = true
 o.hlsearch = true
 o.wrap = true
