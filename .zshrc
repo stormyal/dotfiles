@@ -3,7 +3,8 @@
 # ==========================================
 export PATH=/opt/homebrew/bin:$PATH
 
-typeset -g POWERLEVEL9K_TIME_FOREGROUND=160
+typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND='#FA8D3E'
+typeset -g POWERLEVEL9K_DIR_FOREGROUND='#FA8D3E'
 
 # if [ -z "$TMUX" ]
 # then
