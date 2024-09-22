@@ -1,7 +1,7 @@
 if vim.g.vscode then
     vim.opt.clipboard = "unnamed,unnamedplus"
     vim.opt.virtualedit = "onemore"
-    vim.g.fast_cursor_move_acceleration = false
+    vim.g.fast_cursor_move_acceleration = true
     require("fast-cursor-move")
     return
 end
@@ -667,6 +667,6 @@ require('ts_context_commentstring').setup {
 require('Comment').setup {
     pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
 }
-require('hologram').setup {
-    auto_display = true -- WIP automatic markdown image display, may be prone to breaking
-}
+-- require('hologram').setup {
+--     auto_display = true -- WIP automatic markdown image display, may be prone to breaking
+-- }

@@ -303,7 +303,7 @@ require("lazy").setup({
             'JoosepAlviste/nvim-ts-context-commentstring'
         },
 
-        { 'edluffy/hologram.nvim' }
+        -- { 'edluffy/hologram.nvim' }
 
     },
 
