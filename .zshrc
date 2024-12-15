@@ -1,11 +1,18 @@
+
 # ==========================================
 # ================== PATH ==================
 # ==========================================
-export PATH=/opt/homebrew/bin:$PATH
+export PATH=/opt/homebrew/lib/ruby/gems/3.3.0/bin:/opt/homebrew/opt/ruby/bin:/opt/homebrew/bin:$PATH
 
 typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND='#FA8D3E'
 typeset -g POWERLEVEL9K_DIR_FOREGROUND='#FA8D3E'
 
+if [ -z "$TMUX" ]; then
+  if ! tmux has-session -t default 2>/dev/null; then
+    tmux new-session -d -s default
+  fi
+  tmux attach -t default
+fi
 # if [ -z "$TMUX" ]
 # then
 #     # tmux attach -t TMUX || tmux new -s TMUX

@@ -1,9 +1,15 @@
 vim.g.mapleader = ' '
 
+-- vim.api.nvim_set_keymap('n', 'p', 'p', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', 'p', 'p', { noremap = true, silent = true })
+--
+-- vim.keymap.set('n', '<D-/>', 'gcc')
+-- vim.keymap.set('n', '<D-c>', 'Neotree toggle right<CR>')
+-- vim.keymap.set('n', '<D-v>', 'Neotree toggle right<CR>')
 
 -- vim.keymap.set('n', '<leader>T', ':NvimTreeToggle<CR>')
-vim.keymap.set('n', '<leader>t', ':Neotree toggle right<CR>')
-vim.keymap.set('n', '<leader>r', ':GrugFar<CR>')
+vim.keymap.set('n', '<leader>t', ':nvim_set_keymap toggle right<CR>')
+vim.keymap.set('n', '<leader>r', ':Neotree<CR>')
 vim.keymap.set('n', '<leader>R',
     ":lua require('grug-far').grug_far({ prefills = { flags = vim.fn.expand('%'), search = vim.fn.expand('<cword>') } })<CR>")
 -- vim.keymap.set('n', '<leader>o', builtin.find_files)
@@ -117,7 +123,7 @@ vim.api.nvim_set_keymap('n', '<leader><leader>c', ':HiddenCharactersToggle<CR>',
 -- vim.api.nvim_set_keymap('n', '<leader>nn', ':lua create_new_note()<CR>', { noremap = true, silent = true })
 
 -- even better
-vim.api.nvim_set_keymap('n', '<leader>en', ':e ~/notes/note.md<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>en', ':e ~/notes/v.md<cr>', { noremap = true, silent = true })
 
 
 
