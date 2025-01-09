@@ -3,20 +3,16 @@
 # ================== PATH ==================
 # ==========================================
 export PATH=/opt/homebrew/lib/ruby/gems/3.3.0/bin:/opt/homebrew/opt/ruby/bin:/opt/homebrew/bin:$PATH
+export PATH=$PATH:/usr/local/share/dotnet
 
 typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND='#FA8D3E'
 typeset -g POWERLEVEL9K_DIR_FOREGROUND='#FA8D3E'
 
-if [ -z "$TMUX" ]; then
-  if ! tmux has-session -t default 2>/dev/null; then
-    tmux new-session -d -s default
-  fi
-  tmux attach -t default
-fi
-# if [ -z "$TMUX" ]
-# then
-#     # tmux attach -t TMUX || tmux new -s TMUX
-#     tmux
+# if [ -z "$TMUX" ]; then
+#   if ! tmux has-session -t default 2>/dev/null; then
+#     tmux new-session -d -s default
+#   fi
+#   tmux attach -t default
 # fi
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
