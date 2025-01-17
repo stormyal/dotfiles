@@ -272,7 +272,7 @@ require("neo-tree").setup({
     filesystem = {
         group_empty_dirs = true,
         use_libuv_file_watcher = true,
-        follow_current_file = { enabled = true },
+        -- follow_current_file = { enabled = true },
         follow_current_file = true
         -- hijack_netrw_behavior = "open_default"
     },
@@ -509,8 +509,8 @@ require 'nvim-treesitter.configs'.setup {
         enable = true,
         keymaps = {
             init_selection = "<cr>", -- set to `false` to disable one of the mappings
-            node_incremental = "<tab>",
             scope_incremental = "<cr>",
+            node_incremental = "<tab>",
             node_decremental = "<s-tab>",
         },
     },

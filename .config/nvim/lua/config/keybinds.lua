@@ -1,39 +1,8 @@
 vim.g.mapleader = ' '
 
--- vim.api.nvim_set_keymap('n', 'p', 'p', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', 'p', 'p', { noremap = true, silent = true })
---
--- vim.keymap.set('n', '<D-/>', 'gcc')
--- vim.keymap.set('n', '<D-c>', 'Neotree toggle right<CR>')
--- vim.keymap.set('n', '<D-v>', 'Neotree toggle right<CR>')
-
--- vim.keymap.set('n', '<leader>T', ':NvimTreeToggle<CR>')
-vim.keymap.set('n', '<leader>t', ':nvim_set_keymap toggle right<CR>')
-vim.keymap.set('n', '<leader>r', ':Neotree<CR>')
-vim.keymap.set('n', '<leader>R',
-    ":lua require('grug-far').grug_far({ prefills = { flags = vim.fn.expand('%'), search = vim.fn.expand('<cword>') } })<CR>")
--- vim.keymap.set('n', '<leader>o', builtin.find_files)
-vim.keymap.set('n', '<leader>o', ":FzfLua files<cr>")
-vim.keymap.set('n', '<leader><s-o>', ":lua require('oil').open()<cr>")
-
-vim.keymap.set('n', '<leader>d', ":Diffview")
--- vim.keymap.set('n', '<leader>f', function()
---   builtin.grep_string{
---     path_display = { 'smart' },
---     only_sort_text = true,
---     word_match = "-w",
---     search = '',
---   }
--- end)
--- vim.keymap.set('n', '<leader>f', ":FzfLua live_grep<cr>")
-vim.keymap.set('n', '<leader>f', ":lua require('fzf-lua').grep_project()<cr>")
-vim.keymap.set('n', '<leader>F', ":FzfLua grep_cword<cr>")
-vim.keymap.set('n', '<leader>b', ":FzfLua buffers<cr>")
--- vim.keymap.set('n', '<leader>h', ":FzfLua helptags<cr>")
-
--- splits
-vim.keymap.set('n', '<C-/>', ':split<CR>', { silent = true })
-vim.keymap.set('n', '<C-\'>', ':vsplit<CR>', { silent = true })
+-- split panes
+vim.keymap.set('n', '<c-/>', ':split<CR>', { silent = true })
+vim.keymap.set('n', '<c-\'>', ':vsplit<CR>', { silent = true })
 
 -- window navigation
 vim.keymap.set('n', '<c-h>', '<c-w>h')
@@ -41,6 +10,10 @@ vim.keymap.set('n', '<c-j>', '<c-w>j')
 vim.keymap.set('n', '<c-k>', '<c-w>k')
 vim.keymap.set('n', '<c-l>', '<c-w>l')
 
+vim.api.nvim_set_keymap('n', '<c-,>', ':bprev<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<c-.>', ':bnext<CR>', { noremap = true, silent = true })
+
+-- main shortcuts
 vim.keymap.set('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>')
 vim.keymap.set('n', '<leader>ez', ':e ~/.zshrc<CR>')
 vim.keymap.set('n', '<leader>et', ':e ~/.tmux.conf<CR>')
@@ -48,22 +21,32 @@ vim.keymap.set('n', '<leader>ee', ':e ~/.config/nvim/init.lua<CR>')
 vim.keymap.set('n', '<leader>ek', ':e ~/.config/nvim/lua/config/keybinds.lua<CR>')
 vim.keymap.set('n', '<leader>ep', ':e ~/.config/nvim/lua/config/lazy.lua<CR>')
 
-vim.keymap.set('n', '<leader><leader>h', ':nohl<CR>')
-vim.api.nvim_set_keymap('n', '<leader><leader>w', ':set wrap!<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<c-,>', ':bprev<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<c-.>', ':bnext<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>t', ':Neotree right<CR>')
+vim.keymap.set('n', '<leader>R',
+    ":lua require('grug-far').grug_far({ prefills = { flags = vim.fn.expand('%'), search = vim.fn.expand('<cword>') } })<CR>")
+vim.keymap.set('n', '<leader>o', ":FzfLua files<cr>")
+vim.keymap.set('n', '<leader><s-o>', ":lua require('oil').open()<cr>")
+
+vim.keymap.set('n', '<leader>d', ":Diffview")
+vim.keymap.set('n', '<leader>f', ":lua require('fzf-lua').grep_project()<cr>")
+-- vim.keymap.set('n', '<leader>F', ":FzfLua grep_cword<cr>")
+vim.keymap.set('n', '<leader>b', ":FzfLua buffers<cr>")
+
+-- note
+vim.api.nvim_set_keymap('n', '<leader>en', ':e ~/notes/v.md<cr>', { noremap = true, silent = true })
 
 -- CMP code action
--- vim.api.nvim_set_keymap('n', '<c-,>', ':lua vim.lsp.buf.code_action<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>,', ':lua vim.lsp.buf.code_action<CR>', { noremap = true, silent = true })
 
 -- lsp stuff
 vim.keymap.set('n', '<leader>L', ':lua vim.lsp.buf.code_action()<CR>')
 
--- vim.keymap.set('n', '<leader>ff', ':lua vim.lsp.buf.format()<CR>')
+-- toggles
+vim.keymap.set('n', '<leader><leader>h', ':nohl<CR>')
+vim.api.nvim_set_keymap('n', '<leader><leader>w', ':set wrap!<CR>', { noremap = true, silent = true })
 
 
-
-
+-- DIAGNOSTICS
 vim.api.nvim_create_user_command("DiagnosticToggle", function()
     local config = vim.diagnostic.config
     local vt = config().virtual_text
@@ -107,24 +90,6 @@ vim.api.nvim_create_user_command("HiddenCharactersToggle", function()
     vim.o.list = not vim.o.list
 end, { desc = "toggle rendering of spaces, tabs, etc." })
 vim.api.nvim_set_keymap('n', '<leader><leader>c', ':HiddenCharactersToggle<CR>', { noremap = true, silent = true })
---
---
--- -- CREATE NEW NOTE
--- local function create_new_note()
---     local notes_dir = vim.fn.expand("~/notes/")
---     if vim.fn.isdirectory(notes_dir) == 0 then
---         vim.fn.mkdir(notes_dir, "p")
---     end
---     local date_format = os.date("%Y%m%d%H%M")
---     local file_path = notes_dir .. "/" .. date_format .. ".md"
---     vim.cmd("edit " .. file_path)
--- end
--- _G.create_new_note = create_new_note
--- vim.api.nvim_set_keymap('n', '<leader>nn', ':lua create_new_note()<CR>', { noremap = true, silent = true })
-
--- even better
-vim.api.nvim_set_keymap('n', '<leader>en', ':e ~/notes/v.md<cr>', { noremap = true, silent = true })
-
 
 
 -- zen mode
