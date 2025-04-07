@@ -1728,7 +1728,7 @@
 			<key>Description</key>
 			<string>Default</string>
 			<key>Disable Window Resizing</key>
-			<false/>
+			<true/>
 			<key>Draw Powerline Glyphs</key>
 			<true/>
 			<key>Faint Text Alpha</key>
@@ -1885,6 +1885,8 @@
 			<true/>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
+			<key>Prevent Opening in a Tab</key>
+			<false/>
 			<key>Prompt Before Closing 2</key>
 			<false/>
 			<key>Right Option Key Sends</key>
@@ -2038,6 +2040,8 @@
 			<true/>
 			<key>ASCII Ligatures</key>
 			<false/>
+			<key>Allow Paste Bracketing</key>
+			<true/>
 			<key>Allow modifyOtherKeys</key>
 			<false/>
 			<key>Ambiguous Double Width</key>
@@ -2783,7 +2787,7 @@
 			<key>Description</key>
 			<string>Default</string>
 			<key>Disable Window Resizing</key>
-			<false/>
+			<true/>
 			<key>Draw Powerline Glyphs</key>
 			<true/>
 			<key>Faint Text Alpha</key>
