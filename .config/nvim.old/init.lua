@@ -4,8 +4,9 @@ o.relativenumber = true
 o.ignorecase = true
 o.smartcase = true
 o.hlsearch = true
-o.wrap = true
-o.linebreak = true
+
+o.wrap = true      -- line wrapping on/off
+o.linebreak = true -- true: break at the end of the word when wrapping
 o.breakindent = true
 -- o.breakindentopt = 'shift:8'
 o.expandtab = true
@@ -44,6 +45,13 @@ vim.cmd("set foldopen-=block") -- skip over folds
 -- vim.o.foldfix = true
 -- vim.cmd([[hi FoldColumn guifg=red]])
 vim.cmd([[autocmd ColorScheme * hi FoldColumn guifg=#333333]])
+
+-- automatically update files on external updates
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+    command = "if mode() != 'c' | checktime | endif",
+    pattern = { "*" },
+})
 
 
 
@@ -92,10 +100,36 @@ require("config.keybinds")
 -- }
 
 -----------------------------
-require('ayu').setup({
-    mirage = false,
-    terminal = true,
-})
+-- require('ayu').setup({
+--     mirage = false,
+--     terminal = true,
+-- })
+
+
+
+-- require('midnight').setup({
+--     HighlightGroup = {
+--         fg = ForegroundColor, -- :h guifg
+--         bg = BackgroundColor, -- :h guibg
+--         sp = SpecialColor,    -- :h guisp
+--         style = RenderStyle,  -- :h attr-list
+--         -- OR
+--         -- link = TargetHiglightGroup -- :h :hi-link (link to "TargetHiglightGroup")
+--         -- OR
+--         -- clear = true -- :h :hi-clear (clear "HighlightGroup"; `false` ignores this option)
+--     },
+-- })
+--
+
+
+
+
+
+
+
+
+-----------------------------
+
 
 -- require("aerial").setup({
 --   -- optionally use on_attach to set keymaps when aerial has attached to a buffer
@@ -662,3 +696,5 @@ require('Comment').setup {
 -- require('hologram').setup {
 --     auto_display = true -- WIP automatic markdown image display, may be prone to breaking
 -- }
+--
+--

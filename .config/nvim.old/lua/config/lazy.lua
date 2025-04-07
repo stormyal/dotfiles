@@ -19,11 +19,24 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     checker = { enabled = false },
     spec = {
+        --
+        --
+        --
+        -- COLORSHEMES
+        --
+        --
         {
             "Shatur/neovim-ayu",
             config = function()
                 -- load the colorscheme here
-                vim.cmd([[colorscheme ayu-dark]])
+                -- vim.cmd([[colorscheme ayu-dark]])
+            end,
+        },
+        {
+            'danishprakash/vim-yami',
+            config = function()
+                -- load the colorscheme here
+                vim.cmd([[colorscheme yami]])
             end,
         },
         {
@@ -38,6 +51,12 @@ require("lazy").setup({
         },
         -- { "nvim-telescope/telescope.nvim", dependencies = { 'nvim-lua/plenary.nvim' } },
         -- { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+        --
+        --
+        --
+        -- END OF COLORSHEMES
+        --
+        --
         {
             "ibhagwan/fzf-lua",
             -- optional for icon support
@@ -102,20 +121,20 @@ require("lazy").setup({
         -- { 'nvim-tree/nvim-tree.lua' },
         { 'sindrets/diffview.nvim' },
         { 'MagicDuck/grug-far.nvim' },
-        {
-            'f-person/auto-dark-mode.nvim',
-            opts = {
-                update_interval = 1000,
-                set_dark_mode = function()
-                    vim.api.nvim_set_option("background", "dark")
-                    vim.cmd("colorscheme ayu-dark")
-                end,
-                set_light_mode = function()
-                    vim.api.nvim_set_option("background", "light")
-                    vim.cmd("colorscheme solarized")
-                end,
-            },
-        },
+        -- {
+        --     'f-person/auto-dark-mode.nvim',
+        --     opts = {
+        --         update_interval = 1000,
+        --         set_dark_mode = function()
+        --             vim.api.nvim_set_option("background", "dark")
+        --             vim.cmd("colorscheme ayu-dark")
+        --         end,
+        --         set_light_mode = function()
+        --             vim.api.nvim_set_option("background", "light")
+        --             vim.cmd("colorscheme solarized")
+        --         end,
+        --     },
+        -- },
 
         -- {
         --     'stevearc/aerial.nvim',
@@ -311,6 +330,29 @@ require("lazy").setup({
         {
             'JoosepAlviste/nvim-ts-context-commentstring'
         },
+        -- {
+        --     'nvzone/typr'
+        -- },
+        {
+            "nvzone/typr",
+            dependencies = "nvzone/volt",
+            opts = {},
+            cmd = { "Typr", "TyprStats" },
+        },
+        {
+            "kawre/leetcode.nvim",
+            build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
+            dependencies = {
+                "nvim-telescope/telescope.nvim",
+                -- "ibhagwan/fzf-lua",
+                "nvim-lua/plenary.nvim",
+                "MunifTanjim/nui.nvim",
+            },
+            opts = {
+                -- configuration goes here
+            },
+        }
+
 
         -- { 'edluffy/hologram.nvim' }
 
@@ -323,7 +365,7 @@ require("lazy").setup({
     --
     -- },
     install = {
-        colorscheme = { "ayu" }
+        -- colorscheme = { "yami" }
     },
 
 })
