@@ -1,5 +1,3 @@
-
-
 export PATH=/opt/homebrew/lib/ruby/gems/3.3.0/bin:/opt/homebrew/opt/ruby/bin:/opt/homebrew/bin:$PATH
 export PATH=$PATH:/usr/local/share/dotnet
 

@@ -1,4 +1,3 @@
-print("loading settings")
 
 vim.o.number = true -- line numbers
 vim.o.relativenumber = true -- relative line numbers
@@ -21,4 +20,19 @@ vim.o.autoread = true -- update files on external updates
 vim.o.clipboard = "" -- no clipboard syncing
 vim.o.updatetime = 1000 -- ui update rate
 
-print("settings loaded")
+-- FOLDING
+vim.o.foldcolumn = '1' -- '0' is not bad
+vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.cmd("set foldopen-=block") -- skip over folds
+-- vim.cmd("set foldfix") -- skip over folds
+-- vim.o.foldfix = true
+-- vim.cmd([[hi FoldColumn guifg=red]])
+-- vim.cmd([[autocmd ColorScheme * hi FoldColumn guifg=#333333]])
+
+-- -- keep the lsp gutter open so it doesn't change width of window
+-- o.signcolumn = "yes"
+
+

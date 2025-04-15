@@ -1,30 +1,30 @@
-local o = vim.opt
-o.number = true
-o.relativenumber = true
-o.ignorecase = true
-o.smartcase = true
-o.hlsearch = true
-
-o.wrap = true      -- line wrapping on/off
-o.linebreak = true -- true: break at the end of the word when wrapping
-o.breakindent = true
--- o.breakindentopt = 'shift:8'
-o.expandtab = true
-o.shiftwidth = 4
-o.tabstop = 4
-o.softtabstop = 4
-o.autoindent = true
-o.smartindent = true
-o.smarttab = true
-vim.o.list = false
-vim.o.listchars = "space:·,tab:>-,trail:~,extends:>,precedes:<,nbsp:+"
-vim.o.showbreak = "--->"
-
-o.clipboard = "unnamed,unnamedplus"
-o.termguicolors = true
-o.scrolloff = 3
-o.splitright = true
-o.splitbelow = true
+-- local o = vim.opt
+-- o.number = true
+-- o.relativenumber = true
+-- o.ignorecase = true
+-- o.smartcase = true
+-- o.hlsearch = true
+--
+-- o.wrap = true      -- line wrapping on/off
+-- o.linebreak = true -- true: break at the end of the word when wrapping
+-- o.breakindent = true
+-- -- o.breakindentopt = 'shift:8'
+-- o.expandtab = true
+-- o.shiftwidth = 4
+-- o.tabstop = 4
+-- o.softtabstop = 4
+-- o.autoindent = true
+-- o.smartindent = true
+-- o.smarttab = true
+-- vim.o.list = false
+-- vim.o.listchars = "space:·,tab:>-,trail:~,extends:>,precedes:<,nbsp:+"
+-- vim.o.showbreak = "--->"
+--
+-- o.clipboard = "unnamed,unnamedplus"
+-- o.termguicolors = true
+-- o.scrolloff = 3
+-- o.splitright = true
+-- o.splitbelow = true
 -- https://www.jackfranklin.co.uk/blog/code-folding-in-vim-neovim/
 -- o.foldmethod = "expr"
 -- vim.opt.foldexvim.o.foldcolumn = 'auto:9'pr = "v:lua.vim.treesitter.foldexpr()"
@@ -35,23 +35,23 @@ o.splitbelow = true
 -- vim.opt.foldlevelstart = 1
 -- vim.opt.foldnestmax = 3
 
-vim.o.foldcolumn = '1' -- '0' is not bad
-vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true
-vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-vim.cmd("set foldopen-=block") -- skip over folds
--- vim.cmd("set foldfix") -- skip over folds
--- vim.o.foldfix = true
--- vim.cmd([[hi FoldColumn guifg=red]])
-vim.cmd([[autocmd ColorScheme * hi FoldColumn guifg=#333333]])
+-- vim.o.foldcolumn = '1' -- '0' is not bad
+-- vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
+-- vim.o.foldlevelstart = 99
+-- vim.o.foldenable = true
+-- vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+-- vim.cmd("set foldopen-=block") -- skip over folds
+-- -- vim.cmd("set foldfix") -- skip over folds
+-- -- vim.o.foldfix = true
+-- -- vim.cmd([[hi FoldColumn guifg=red]])
+-- vim.cmd([[autocmd ColorScheme * hi FoldColumn guifg=#333333]])
 
--- automatically update files on external updates
-vim.o.autoread = true
-vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
-    command = "if mode() != 'c' | checktime | endif",
-    pattern = { "*" },
-})
+-- -- automatically update files on external updates
+-- vim.o.autoread = true
+-- vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+--     command = "if mode() != 'c' | checktime | endif",
+--     pattern = { "*" },
+-- })
 
 
 
@@ -66,18 +66,18 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
 -- ]], false)
 --
 
-o.updatetime = 50
-
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-    pattern = { "*" },
-    command = [[%s/\s\+$//e]],
-})
-
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-    pattern = { "*" },
-    command = [[ lua vim.lsp.buf.format() ]],
-
-})
+-- o.updatetime = 50
+--
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--     pattern = { "*" },
+--     command = [[%s/\s\+$//e]],
+-- })
+--
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--     pattern = { "*" },
+--     command = [[ lua vim.lsp.buf.format() ]],
+--
+-- })
 
 require("config.lazy")
 require("config.keybinds")
@@ -142,190 +142,190 @@ require("config.keybinds")
 -- You probably also want to set a keymap to toggle aerial
 -- vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
 
-require("oil").setup({
-    keymaps = {
-        ["g?"] = "actions.show_help",
-        ["<CR>"] = "actions.select",
-        ["<C-s>"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
-        ["<C-x>"] = { "actions.select", opts = { horizontal = true }, desc = "Open the entry in a horizontal split" },
-        ["<C-t>"] = { "actions.select", opts = { tab = true }, desc = "Open the entry in new tab" },
-        ["<C-p>"] = "actions.preview",
-        ["<C-c>"] = "actions.close",
-        ["<C-r>"] = "actions.refresh",
-        ["-"] = "actions.parent",
-        ["_"] = "actions.open_cwd",
-        ["`"] = "actions.cd",
-        ["~"] = { "actions.cd", opts = { scope = "tab" }, desc = ":tcd to the current oil directory" },
-        ["gs"] = "actions.change_sort",
-        ["gx"] = "actions.open_external",
-        ["g."] = "actions.toggle_hidden",
-        ["g\\"] = "actions.toggle_trash",
-    },
-    use_default_keymaps = false,
-})
+-- require("oil").setup({
+--     keymaps = {
+--         ["g?"] = "actions.show_help",
+--         ["<CR>"] = "actions.select",
+--         ["<C-s>"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
+--         ["<C-x>"] = { "actions.select", opts = { horizontal = true }, desc = "Open the entry in a horizontal split" },
+--         ["<C-t>"] = { "actions.select", opts = { tab = true }, desc = "Open the entry in new tab" },
+--         ["<C-p>"] = "actions.preview",
+--         ["<C-c>"] = "actions.close",
+--         ["<C-r>"] = "actions.refresh",
+--         ["-"] = "actions.parent",
+--         ["_"] = "actions.open_cwd",
+--         ["`"] = "actions.cd",
+--         ["~"] = { "actions.cd", opts = { scope = "tab" }, desc = ":tcd to the current oil directory" },
+--         ["gs"] = "actions.change_sort",
+--         ["gx"] = "actions.open_external",
+--         ["g."] = "actions.toggle_hidden",
+--         ["g\\"] = "actions.toggle_trash",
+--     },
+--     use_default_keymaps = false,
+-- })
 
-require('lualine').setup {
-    options = {
-        icons_enabled = true,
-        theme = 'auto',
-        component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
-        disabled_filetypes = {
-            statusline = {},
-            winbar = {},
-        },
-        ignore_focus = {},
-        always_divide_middle = true,
-        globalstatus = false,
-        refresh = {
-            statusline = 1000,
-            tabline = 1000,
-            winbar = 1000,
-        }
-    },
-    sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { 'filename' },
-        lualine_x = { 'encoding', 'filetype' },
-        lualine_y = { 'progress' },
-        lualine_z = { 'location' }
-    },
-    inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = { 'filename' },
-        lualine_x = { 'location' },
-        lualine_y = {},
-        lualine_z = {}
-    },
-    tabline = {},
-    winbar = {},
-    inactive_winbar = {},
-    extensions = {}
-}
-
-vim.opt.termguicolors = true
-
-require('gitsigns').setup {
-    signs                        = {
-        add          = { text = '┃' },
-        change       = { text = '┃' },
-        delete       = { text = '_' },
-        topdelete    = { text = '‾' },
-        changedelete = { text = '~' },
-        untracked    = { text = '┆' },
-    },
-    signs_staged                 = {
-        add          = { text = '┃' },
-        change       = { text = '┃' },
-        delete       = { text = '_' },
-        topdelete    = { text = '‾' },
-        changedelete = { text = '~' },
-        untracked    = { text = '┆' },
-    },
-    signs_staged_enable          = true,
-    signcolumn                   = true,  -- Toggle with `:Gitsigns toggle_signs`
-    numhl                        = false, -- Toggle with `:Gitsigns toggle_numhl`
-    linehl                       = false, -- Toggle with `:Gitsigns toggle_linehl`
-    word_diff                    = false, -- Toggle with `:Gitsigns toggle_word_diff`
-    watch_gitdir                 = {
-        follow_files = true
-    },
-    auto_attach                  = true,
-    attach_to_untracked          = false,
-    current_line_blame           = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
-    current_line_blame_opts      = {
-        virt_text = true,
-        virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
-        delay = 1000,
-        ignore_whitespace = false,
-        virt_text_priority = 100,
-    },
-    current_line_blame_formatter = '<author>, <author_time:%R> - <summary>',
-    sign_priority                = 6,
-    update_debounce              = 100,
-    status_formatter             = nil,   -- Use default
-    max_file_length              = 40000, -- Disable if file is longer than this (in lines)
-    preview_config               = {
-        -- Options passed to nvim_open_win
-        border = 'single',
-        style = 'minimal',
-        relative = 'cursor',
-        row = 0,
-        col = 1
-    },
-    on_attach                    = function(bufnr)
-        local gitsigns = require('gitsigns')
-
-
-        local function map(mode, l, r, opts)
-            opts = opts or {}
-            opts.buffer = bufnr
-            vim.keymap.set(mode, l, r, opts)
-        end
-
-        -- Navigation
-        map('n', ']c', function()
-            if vim.wo.diff then
-                vim.cmd.normal({ ']c', bang = true })
-            else
-                gitsigns.nav_hunk('next')
-            end
-        end)
-
-        map('n', '[c', function()
-            if vim.wo.diff then
-                vim.cmd.normal({ '[c', bang = true })
-            else
-                gitsigns.nav_hunk('prev')
-            end
-        end)
-
-        -- Actions
-        map('n', '<leader>hs', gitsigns.stage_hunk)
-        map('n', '<leader>hr', gitsigns.reset_hunk)
-        map('v', '<leader>hs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
-        map('v', '<leader>hr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
-        map('n', '<leader>hS', gitsigns.stage_buffer)
-        map('n', '<leader>hu', gitsigns.undo_stage_hunk)
-        map('n', '<leader>hR', gitsigns.reset_buffer)
-        map('n', '<leader>hp', gitsigns.preview_hunk)
-        map('n', '<leader>hb', function() gitsigns.blame_line { full = true } end)
-        map('n', '<leader>htb', gitsigns.toggle_current_line_blame)
-        map('n', '<leader>hd', gitsigns.diffthis)
-        map('n', '<leader>hD', function() gitsigns.diffthis('~') end)
-        map('n', '<leader>htd', gitsigns.toggle_deleted)
-
-        -- Text object
-        map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
-    end
-}
-
-require("neo-tree").setup({
-    filesystem = {
-        group_empty_dirs = true,
-        use_libuv_file_watcher = true,
-        -- follow_current_file = { enabled = true },
-        follow_current_file = true
-        -- hijack_netrw_behavior = "open_default"
-    },
-
-})
-
-local function fire_git_event()
-    require("neo-tree.events").fire_event(require("neo-tree.events").GIT_EVENT)
-end
-
-vim.api.nvim_create_autocmd("TabEnter", {
-    pattern = "*",
-    callback = fire_git_event,
-    -- command = "NvimTreeRefresh",
-})
-
-vim.g.maplocalleader = ','
-require('grug-far').setup({});
-
+-- require('lualine').setup {
+--     options = {
+--         icons_enabled = true,
+--         theme = 'auto',
+--         component_separators = { left = '', right = '' },
+--         section_separators = { left = '', right = '' },
+--         disabled_filetypes = {
+--             statusline = {},
+--             winbar = {},
+--         },
+--         ignore_focus = {},
+--         always_divide_middle = true,
+--         globalstatus = false,
+--         refresh = {
+--             statusline = 1000,
+--             tabline = 1000,
+--             winbar = 1000,
+--         }
+--     },
+--     sections = {
+--         lualine_a = { 'mode' },
+--         lualine_b = { 'branch', 'diff', 'diagnostics' },
+--         lualine_c = { 'filename' },
+--         lualine_x = { 'encoding', 'filetype' },
+--         lualine_y = { 'progress' },
+--         lualine_z = { 'location' }
+--     },
+--     inactive_sections = {
+--         lualine_a = {},
+--         lualine_b = {},
+--         lualine_c = { 'filename' },
+--         lualine_x = { 'location' },
+--         lualine_y = {},
+--         lualine_z = {}
+--     },
+--     tabline = {},
+--     winbar = {},
+--     inactive_winbar = {},
+--     extensions = {}
+-- }
+--
+-- vim.opt.termguicolors = true
+--
+-- require('gitsigns').setup {
+--     signs                        = {
+--         add          = { text = '┃' },
+--         change       = { text = '┃' },
+--         delete       = { text = '_' },
+--         topdelete    = { text = '‾' },
+--         changedelete = { text = '~' },
+--         untracked    = { text = '┆' },
+--     },
+--     signs_staged                 = {
+--         add          = { text = '┃' },
+--         change       = { text = '┃' },
+--         delete       = { text = '_' },
+--         topdelete    = { text = '‾' },
+--         changedelete = { text = '~' },
+--         untracked    = { text = '┆' },
+--     },
+--     signs_staged_enable          = true,
+--     signcolumn                   = true,  -- Toggle with `:Gitsigns toggle_signs`
+--     numhl                        = false, -- Toggle with `:Gitsigns toggle_numhl`
+--     linehl                       = false, -- Toggle with `:Gitsigns toggle_linehl`
+--     word_diff                    = false, -- Toggle with `:Gitsigns toggle_word_diff`
+--     watch_gitdir                 = {
+--         follow_files = true
+--     },
+--     auto_attach                  = true,
+--     attach_to_untracked          = false,
+--     current_line_blame           = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+--     current_line_blame_opts      = {
+--         virt_text = true,
+--         virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+--         delay = 1000,
+--         ignore_whitespace = false,
+--         virt_text_priority = 100,
+--     },
+--     current_line_blame_formatter = '<author>, <author_time:%R> - <summary>',
+--     sign_priority                = 6,
+--     update_debounce              = 100,
+--     status_formatter             = nil,   -- Use default
+--     max_file_length              = 40000, -- Disable if file is longer than this (in lines)
+--     preview_config               = {
+--         -- Options passed to nvim_open_win
+--         border = 'single',
+--         style = 'minimal',
+--         relative = 'cursor',
+--         row = 0,
+--         col = 1
+--     },
+--     on_attach                    = function(bufnr)
+--         local gitsigns = require('gitsigns')
+--
+--
+--         local function map(mode, l, r, opts)
+--             opts = opts or {}
+--             opts.buffer = bufnr
+--             vim.keymap.set(mode, l, r, opts)
+--         end
+--
+--         -- Navigation
+--         map('n', ']c', function()
+--             if vim.wo.diff then
+--                 vim.cmd.normal({ ']c', bang = true })
+--             else
+--                 gitsigns.nav_hunk('next')
+--             end
+--         end)
+--
+--         map('n', '[c', function()
+--             if vim.wo.diff then
+--                 vim.cmd.normal({ '[c', bang = true })
+--             else
+--                 gitsigns.nav_hunk('prev')
+--             end
+--         end)
+--
+--         -- Actions
+--         map('n', '<leader>hs', gitsigns.stage_hunk)
+--         map('n', '<leader>hr', gitsigns.reset_hunk)
+--         map('v', '<leader>hs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+--         map('v', '<leader>hr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+--         map('n', '<leader>hS', gitsigns.stage_buffer)
+--         map('n', '<leader>hu', gitsigns.undo_stage_hunk)
+--         map('n', '<leader>hR', gitsigns.reset_buffer)
+--         map('n', '<leader>hp', gitsigns.preview_hunk)
+--         map('n', '<leader>hb', function() gitsigns.blame_line { full = true } end)
+--         map('n', '<leader>htb', gitsigns.toggle_current_line_blame)
+--         map('n', '<leader>hd', gitsigns.diffthis)
+--         map('n', '<leader>hD', function() gitsigns.diffthis('~') end)
+--         map('n', '<leader>htd', gitsigns.toggle_deleted)
+--
+--         -- Text object
+--         map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+--     end
+-- }
+--
+-- require("neo-tree").setup({
+--     filesystem = {
+--         group_empty_dirs = true,
+--         use_libuv_file_watcher = true,
+--         -- follow_current_file = { enabled = true },
+--         follow_current_file = true
+--         -- hijack_netrw_behavior = "open_default"
+--     },
+--
+-- })
+--
+-- local function fire_git_event()
+--     require("neo-tree.events").fire_event(require("neo-tree.events").GIT_EVENT)
+-- end
+--
+-- vim.api.nvim_create_autocmd("TabEnter", {
+--     pattern = "*",
+--     callback = fire_git_event,
+--     -- command = "NvimTreeRefresh",
+-- })
+--
+-- vim.g.maplocalleader = ','
+-- require('grug-far').setup({});
+--
 
 
 
@@ -356,13 +356,13 @@ require('grug-far').setup({});
 --   },
 -- }
 
-require("mason").setup()
-require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "cssls", "gopls", "html", "htmx", "tsserver" },
-})
+-- require("mason").setup()
+-- require("mason-lspconfig").setup({
+--     ensure_installed = { "lua_ls", "cssls", "gopls", "html", "htmx", "tsserver" },
+-- })
 
--- keep the lsp gutter open so it doesn't change width of window
-o.signcolumn = "yes"
+-- -- keep the lsp gutter open so it doesn't change width of window
+-- o.signcolumn = "yes"
 
 require 'lspconfig'.lua_ls.setup {
     settings = {
