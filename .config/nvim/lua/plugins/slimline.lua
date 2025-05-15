@@ -1,0 +1,91 @@
+return {
+    "sschleemilch/slimline.nvim",
+    opts = {
+        style = 'fg', -- or "fg"
+
+        -- components = {
+        --     left = {
+        --         'mode',
+        --         'path',
+        --         'git',
+        --     },
+        --     center = {},
+        --     right = {
+        --         'diagnostics',
+        --         'filetype_lsp',
+        --         'progress',
+        --     },
+        -- },
+        --
+        -- configs = {
+        --     mode = {
+        --         verbose = false, -- Mode as single letter or as a word
+        --         hl = {
+        --             normal = 'Type',
+        --             insert = 'Function',
+        --             pending = 'Boolean',
+        --             visual = 'Keyword',
+        --             command = 'String',
+        --         },
+        --     },
+        --     path = {
+        --         directory = true, -- Whether to show the directory
+        --         icons = {
+        --             folder = ' ',
+        --             modified = '',
+        --             read_only = '',
+        --         },
+        --     },
+        --     git = {
+        --         icons = {
+        --             branch = '',
+        --             added = '+',
+        --             modified = '~',
+        --             removed = '-',
+        --         },
+        --     },
+        --     diagnostics = {
+        --         workspace = false, -- Whether diagnostics should show workspace diagnostics instead of current buffer
+        --         icons = {
+        --             ERROR = ' ',
+        --             WARN = ' ',
+        --             HINT = ' ',
+        --             INFO = ' ',
+        --         },
+        --     },
+        --     filetype_lsp = {},
+        --     progress = {
+        --         follow = 'mode',
+        --         column = false, -- Enables a secondary section with the cursor column
+        --         icon = ' ',
+        --     },
+        --     recording = {
+        --         icon = ' ',
+        --     },
+        -- },
+        --
+        -- -- Spacing configuration
+        -- spaces = {
+        --     components = ' ', -- string between components
+        --     left = ' ', -- string at the start of the line
+        --     right = ' ', -- string at the end of the line
+        -- },
+        --
+        -- -- Seperator configuartion
+        -- sep = {
+        --     hide = {
+        --         first = false, -- hides the first separator of the line
+        --         last = false, -- hides the last separator of the line
+        --     },
+        --     left = '', -- left separator of components
+        --     right = '', -- right separator of components
+        -- },
+        --
+        -- -- Global highlights
+        -- hl = {
+        --     base = 'Comment', -- highlight of the background
+        --     primary = 'Normal', -- highlight of primary parts (e.g. filename)
+        --     secondary = 'Comment', -- highlight of secondary parts (e.g. filepath)
+        -- },
+    }
+}

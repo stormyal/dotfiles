@@ -90,3 +90,7 @@ if [[ -z "$TMUX" ]]
 then
 	prompt_for_tmux
 fi
+
+
+# fzf
+source <(fzf --zsh)

@@ -8,16 +8,16 @@
 --
 --
 -- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-    vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-end
-vim.opt.rtp:prepend(lazypath)
-
+-- local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+-- if not (vim.uv or vim.loop).fs_stat(lazypath) then
+--     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+--     vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+-- end
+-- vim.opt.rtp:prepend(lazypath)
+--
 -- Setup lazy.nvim
 require("lazy").setup({
-    checker = { enabled = false },
+    -- checker = { enabled = false },
     spec = {
         --
         --
@@ -25,30 +25,30 @@ require("lazy").setup({
         -- COLORSHEMES
         --
         --
-        {
-            "Shatur/neovim-ayu",
-            config = function()
-                -- load the colorscheme here
-                -- vim.cmd([[colorscheme ayu-dark]])
-            end,
-        },
-        {
-            'danishprakash/vim-yami',
-            config = function()
-                -- load the colorscheme here
-                vim.cmd([[colorscheme yami]])
-            end,
-        },
-        {
-            'maxmx03/solarized.nvim',
-            lazy = false,
-            priority = 1000,
-            -- config = function()
-            --   vim.o.background = 'dark' -- or 'light'
-            --
-            --   vim.cmd.colorscheme 'solarized'
-            -- end,
-        },
+        -- {
+        --     "Shatur/neovim-ayu",
+        --     config = function()
+        --         -- load the colorscheme here
+        --         -- vim.cmd([[colorscheme ayu-dark]])
+        --     end,
+        -- },
+        -- {
+        --     'danishprakash/vim-yami',
+        --     config = function()
+        --         -- load the colorscheme here
+        --         vim.cmd([[colorscheme yami]])
+        --     end,
+        -- },
+        -- {
+        --     'maxmx03/solarized.nvim',
+        --     lazy = false,
+        --     priority = 1000,
+        --     -- config = function()
+        --     --   vim.o.background = 'dark' -- or 'light'
+        --     --
+        --     --   vim.cmd.colorscheme 'solarized'
+        --     -- end,
+        -- },
         -- { "nvim-telescope/telescope.nvim", dependencies = { 'nvim-lua/plenary.nvim' } },
         -- { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
         --
@@ -56,41 +56,41 @@ require("lazy").setup({
         --
         -- END OF COLORSHEMES
         --
-        --
-        {
-            "ibhagwan/fzf-lua",
-            -- optional for icon support
-            dependencies = { "nvim-tree/nvim-web-devicons" },
-            config = function()
-                -- calling `setup` is optional for customization
-                require("fzf-lua").setup({ 'telescope', fzf_colors = false })
-            end
-        },
+        -- --
+        -- {
+        --     "ibhagwan/fzf-lua",
+        --     -- optional for icon support
+        --     dependencies = { "nvim-tree/nvim-web-devicons" },
+        --     config = function()
+        --         -- calling `setup` is optional for customization
+        --         require("fzf-lua").setup({ 'telescope', fzf_colors = false })
+        --     end
+        -- },
 
 
 
-        {
-            "stevearc/oil.nvim",
-            opts = {},
-            dependencies = { "nvim-tree/nvim-web-devicons" },
-            config = function()
-                require("oil").setup({
-                    default_file_explorer = true,
-                    delete_to_trash = true,
-                    skip_confirm_for_simple_edits = true,
-                    view_options = {
-                        show_hidden = true,
-                        natural_order = true,
-                        is_always_hidden = function(name, _)
-                            return name == '..' or name == '.git'
-                        end,
-                    },
-                    win_options = {
-                        wrap = true,
-                    }
-                })
-            end,
-        },
+        -- {
+        --     "stevearc/oil.nvim",
+        --     opts = {},
+        --     dependencies = { "nvim-tree/nvim-web-devicons" },
+        --     config = function()
+        --         require("oil").setup({
+        --             default_file_explorer = true,
+        --             delete_to_trash = true,
+        --             skip_confirm_for_simple_edits = true,
+        --             view_options = {
+        --                 show_hidden = true,
+        --                 natural_order = true,
+        --                 is_always_hidden = function(name, _)
+        --                     return name == '..' or name == '.git'
+        --                 end,
+        --             },
+        --             win_options = {
+        --                 wrap = true,
+        --             }
+        --         })
+        --     end,
+        -- },
         {
             "nvim-neo-tree/neo-tree.nvim",
             branch = "v3.x",
