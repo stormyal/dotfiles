@@ -1,0 +1,13 @@
+{
+  "accentColor": "#db8400",
+  "cssTheme": "Minimal",
+  "theme": "obsidian",
+  "baseFontSize": 16,
+  "textFontFamily": "Hack Nerd Font,Hack,Hack Nerd Font Propo,Hack Nerd Font Mono,Bear Sans UI",
+  "monospaceFontFamily": "Hack Nerd Font,Roboto Mono",
+  "interfaceFontFamily": "Hack Nerd Font,Bear Sans UI",
+  "baseFontSizeAction": false,
+  "enabledCssSnippets": [
+    "custom"
+  ]
+}
