@@ -5,4 +5,3 @@ require("settings")
 require("lazyinit")
 require("keybinds")
 
-
