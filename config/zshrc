@@ -53,6 +53,8 @@ setopt no_share_history
 HISTORY_SUBSTRING_SEARCH_FUZZY='true'
 bindkey -M viins "^[[A" history-substring-search-up
 bindkey -M viins "^[[B" history-substring-search-down
+bindkey -M vicmd "^[[A" history-substring-search-up
+bindkey -M vicmd "^[[B" history-substring-search-down
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
 bindkey -M vicmd 'k' history-substring-search-up

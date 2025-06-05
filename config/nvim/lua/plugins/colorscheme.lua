@@ -17,4 +17,3 @@ return {
     -- colorscheme_object("Shatur/neovim-ayu", "ayu-light")
     colorscheme_object("danishprakash/vim-yami", "yami")
 }
-
