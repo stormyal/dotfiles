@@ -2,6 +2,7 @@ HISTFILE=~/.zsh_history
 
 export PATH=/opt/homebrew/lib/ruby/gems/3.3.0/bin:/opt/homebrew/opt/ruby/bin:/opt/homebrew/bin:$PATH
 export PATH=$PATH:/usr/local/share/dotnet
+export PATH="/Users/alexsvat/.local/bin:$PATH"
 
 # plugins
 if [ ! -d ~/.zgenom ]; then
@@ -21,6 +22,7 @@ alias v="nvim"
 alias cm="cmatrix"
 alias gt="git log --oneline --graph --decorate --all"
 alias gq="git add -A && git commit -m \"changes\" && git push"
+alias activate="python3 -m venv venv && source venv/bin/activate"
 
 # default editor
 export EDITOR="nvim"
@@ -51,10 +53,8 @@ setopt no_share_history
 HISTORY_SUBSTRING_SEARCH_FUZZY='true'
 bindkey -M viins "^[[A" history-substring-search-up
 bindkey -M viins "^[[B" history-substring-search-down
-#bindkey -M main "^P" history-substring-search-up
-#bindkey -M main "^N" history-substring-search-down
-#bindkey -M vicmd "^P" history-substring-search-up
-#bindkey -M vicmd "^N" history-substring-search-down
+bindkey '^P' history-beginning-search-backward
+bindkey '^N' history-beginning-search-forward
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
@@ -91,11 +91,14 @@ attach_to_tmux() {
 	fi
 }
 
-if [[ -z "$TMUX" ]]
-then
-	prompt_for_tmux
-fi
+# if [[ -z "$TMUX" ]]
+# then
+# 	prompt_for_tmux
+# fi
 
 
 # fzf
 source <(fzf --zsh)
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
