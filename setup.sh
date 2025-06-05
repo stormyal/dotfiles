@@ -22,6 +22,7 @@ elif [[ "$(uname)" = "Darwin" ]]; then
 
     echo "its macos"
 
+    ln -s ~/dotfiles/config/kitty ~/.config/kitty
     ln -s ~/dotfiles/config/nvim ~/.config/nvim
     ln -s ~/dotfiles/config/tmux.conf ~/.tmux.conf
     ln -s ~/dotfiles/config/zshrc ~/.zshrc
