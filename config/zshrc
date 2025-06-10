@@ -15,6 +15,7 @@ if ! zgenom saved; then
     zgenom load zsh-users/zsh-syntax-highlighting
     zgenom load zsh-users/zsh-history-substring-search
     zgenom load jeffreytse/zsh-vi-mode
+    zgenom load xPMo/zsh-ls-colors
 fi
 
 # alias
@@ -101,6 +102,8 @@ attach_to_tmux() {
 
 # fzf
 source <(fzf --zsh)
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+
+# TODO: not sure
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init - zsh)"
