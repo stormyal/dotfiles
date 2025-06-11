@@ -1,0 +1,41 @@
+general {
+    output_format = "i3bar"
+    colors = true
+    interval = 1
+}
+
+order += "load"
+order += "cpu_temperature 0"
+order += "disk /"
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "battery all"
+order += "tztime local"
+
+cpu_temperature 0 {
+    format = "%degrees°"
+    path = "/sys/class/thermal/thermal_zone0/temp"
+}
+
+load {
+    format = "CPU: %1min"
+}
+
+disk "/" {
+    format = "Free: %avail"
+}
+
+wireless _first_ {
+    format_up = "WiFi: %quality (%essid)"
+    format_down = "WiFi: down"
+}
+
+ethernet _first_ {
+    format_up = "Eth: %ip"
+    format_down = "Eth: down"
+}
+
+tztime local {
+    format = "%Y-%m-%d %H:%M:%S"
+}
+
