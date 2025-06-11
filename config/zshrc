@@ -15,7 +15,6 @@ if ! zgenom saved; then
     zgenom load zsh-users/zsh-syntax-highlighting
     zgenom load zsh-users/zsh-history-substring-search
     zgenom load jeffreytse/zsh-vi-mode
-    zgenom load xPMo/zsh-ls-colors
 fi
 
 # alias
