@@ -18,6 +18,7 @@ if ! zgenom saved; then
     zgenom load zsh-users/zsh-syntax-highlighting
     zgenom load zsh-users/zsh-history-substring-search
     zgenom load jeffreytse/zsh-vi-mode
+    # zgenom load unixorn/fzf-zsh-plugin
 fi
 
 # fzf
@@ -37,15 +38,15 @@ export ZVM_VI_EDITOR="nvim"
 
 # prompt
 
-fpath+=($HOME/.zsh/pure)
-autoload -U promptinit; promptinit
-PURE_PROMPT_SYMBOL="%%"
-PURE_PROMPT_VICMD_SYMBOL="%%"
-PURE_CMD_MAX_EXEC_TIME=99999999
-# single line 
-prompt pure
-prompt_newline='%666v'
-PROMPT=" $PROMPT"
+# fpath+=($HOME/.zsh/pure)
+# autoload -U promptinit; promptinit
+# PURE_PROMPT_SYMBOL="%%"
+# PURE_PROMPT_VICMD_SYMBOL="%%"
+# PURE_CMD_MAX_EXEC_TIME=99999999
+# # single line 
+# prompt pure
+# prompt_newline='%666v'
+# PROMPT=" $PROMPT"
 # NOTE: remove the print statement from ~/.zsh/pure/pure.zsh @ "Initial newline"
 
 # command history
