@@ -15,5 +15,7 @@ return {
     -- colorscheme_object("folke/tokyonight.nvim", "tokyonight")
     -- colorscheme_object("Shatur/neovim-ayu", "ayu-dark")
     -- colorscheme_object("Shatur/neovim-ayu", "ayu-light")
-    colorscheme_object("danishprakash/vim-yami", "yami")
+    colorscheme_object("danishprakash/vim-yami", "yami"),
+    -- colorscheme_object("bettervim/yugen.nvim", "yugen"),
+    -- colorscheme_object("Lokaltog/vim-distinguished", "distinguished")
 }

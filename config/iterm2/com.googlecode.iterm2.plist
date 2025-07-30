@@ -3183,6 +3183,8 @@
 	<true/>
 	<key>ShowPaneTitles</key>
 	<false/>
+	<key>ShowSecureKeyboardEntryIndicator</key>
+	<false/>
 	<key>SmartPlacement</key>
 	<false/>
 	<key>SoundForEsc</key>
