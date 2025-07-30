@@ -4,6 +4,9 @@ export PATH=/opt/homebrew/lib/ruby/gems/3.3.0/bin:/opt/homebrew/opt/ruby/bin:/op
 export PATH=$PATH:/usr/local/share/dotnet
 export PATH="/Users/alexsvat/.local/bin:$PATH"
 
+# fix the conflict of zsh-vi-mode with fzf: https://github.com/jeffreytse/zsh-vi-mode/issues/24
+ZVM_INIT_MODE=sourcing
+
 # plugins
 if [ ! -d ~/.zgenom ]; then
     git clone https://github.com/jandamm/zgenom.git "${HOME}/.zgenom"
@@ -16,6 +19,9 @@ if ! zgenom saved; then
     zgenom load zsh-users/zsh-history-substring-search
     zgenom load jeffreytse/zsh-vi-mode
 fi
+
+# fzf
+source <(fzf --zsh)
 
 # alias
 alias v="nvim"
@@ -97,10 +103,6 @@ attach_to_tmux() {
 # then
 # 	prompt_for_tmux
 # fi
-
-
-# fzf
-source <(fzf --zsh)
 
 # TODO: not sure
 # export PYENV_ROOT="$HOME/.pyenv"
