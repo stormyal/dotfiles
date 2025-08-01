@@ -36,8 +36,19 @@ vim.keymap.set('v', 'y', '"+y')
 vim.keymap.set('v', 'd', '"+d')
 vim.keymap.set('n', 'yy', '"+yy')
 
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+  pattern = { "oil://*" },
+  callback = function()
+    vim.keymap.set("n", "<leader>cd", "<cmd>norm ~<cr>")
+    -- vim.keymap.set("n", "h", "~", { buffer = 0 })
+    -- vim.keymap.set('n', '<leader>cd', '~')
+  end,
+})
 -- change current directory to current file
-vim.keymap.set('n', '<leader>cd', ':cd %:p:h<CR>:pwd<cr>')
+-- if vim.bo.filetype == "oil" then
+--     vim.keymap.set('n', '<leader>cd', '~')
+-- end
+-- vim.keymap.set('n', '<leader>cd', ':cd %:p:h<CR>:pwd<cr>')
 
 -- type • faster
 vim.keymap.set('i', '<A-8>', '•', { noremap = true, silent = true })

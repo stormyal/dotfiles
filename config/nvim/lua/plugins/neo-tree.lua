@@ -10,6 +10,7 @@ return {
     init = function()
         vim.g.neotree = {
             auto_close = true,
+
             auto_open = false,
             auto_update = true,
             update_to_buf_dir = true,
@@ -21,7 +22,7 @@ return {
             group_empty_dirs = true,
             use_libuv_file_watcher = true,
             follow_current_file = true,
-            -- hijack_netrw_behavior = "open_default"
+            hijack_netrw_behavior = "disabled",
 
             filtered_items = {
                 hide_dotfiles = false,
