@@ -5,8 +5,15 @@ vim.keymap.set('n', '<leader>ek', ":e ~/.config/nvim/lua/keybinds.lua<cr>")
 vim.keymap.set('n', '<leader>ep', ":e ~/.config/nvim/lua/plugins/<cr>")
 vim.keymap.set('n', '<leader>et', ":e ~/.config/nvim/lua/plugins/colorscheme.lua<cr>")
 vim.keymap.set('n', '<leader>el', ":e ~/.config/nvim/lua/lazyinit.lua<cr>")
-vim.keymap.set('n', '<leader>et', ":e ~/.tmux.conf")
+vim.keymap.set('n', '<leader>et', ":e ~/.tmux.conf<cr>")
+vim.keymap.set('n', '<leader>ez', ":e ~/.zshrc<cr>")
 vim.keymap.set('n', '<leader>en', ":Oil ~/notes/code/v/<cr>")
+
+-- move up/down in wrapped lines
+vim.keymap.set('n', '<down>', 'gj')
+vim.keymap.set('n', '<up>', 'gk')
+vim.keymap.set('n', 'j', 'gj')
+vim.keymap.set('n', 'k', 'gk')
 
 -- split panes
 vim.keymap.set('n', '<c-/>', ':split<CR>', { silent = true })

@@ -10,7 +10,7 @@ return {
         vim.cmd.colorscheme("shine")
     end,
     update_interval = 3000,
-    fallback = "dark"
+    fallback = "default"
   }
 }
 
