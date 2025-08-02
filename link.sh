@@ -1,7 +1,6 @@
 #!/bin/bash
 
 if [[ "$(uname)" = "Linux" ]]; then
-    echo "its linux"
     mkdir -p ~/.config
     mkdir -p ~/.config/tmux
 
@@ -14,8 +13,6 @@ if [[ "$(uname)" = "Linux" ]]; then
 elif [[ "$(uname)" = "Darwin" ]]; then
 
     # brew install fzf ripgrep
-
-    echo "its macos"
 
     ln -s ~/dotfiles/config/nvim ~/.config/nvim
     ln -s ~/dotfiles/config/tmux.conf ~/.tmux.conf

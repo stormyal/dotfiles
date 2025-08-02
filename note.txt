@@ -63,3 +63,25 @@ command line tools:
 - gping
 - https://github.com/aurc/loggo
 - find more: [terminal trove](https://terminaltrove.com/)
+
+
+
+---
+
+
+
+arch install commands
+
+
+```
+
+
+sudo pacman -S reflector
+systemctl start example.service
+systemctl enable reflector.timer
+```
+
+
+
+
+

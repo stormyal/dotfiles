@@ -7,7 +7,8 @@ vim.keymap.set('n', '<leader>et', ":e ~/.config/nvim/lua/plugins/colorscheme.lua
 vim.keymap.set('n', '<leader>el', ":e ~/.config/nvim/lua/lazyinit.lua<cr>")
 vim.keymap.set('n', '<leader>et', ":e ~/.tmux.conf<cr>")
 vim.keymap.set('n', '<leader>ez', ":e ~/.zshrc<cr>")
-vim.keymap.set('n', '<leader>en', ":Oil ~/notes/code/v/<cr>")
+vim.keymap.set('n', '<leader>ee', ":e ~/dotfiles<cr>")
+vim.keymap.set('n', '<leader>en', ":Oil ~/dotfiles/note.txt<cr>")
 
 -- move up/down in wrapped lines
 vim.keymap.set('n', '<down>', 'gj')
