@@ -18,10 +18,10 @@ if ! zgenom saved; then
     zgenom load zsh-users/zsh-syntax-highlighting
     zgenom load zsh-users/zsh-history-substring-search
     zgenom load jeffreytse/zsh-vi-mode
-    # zgenom load subnixr/minimal
     zgenom load mafredri/zsh-async
-    # zgenom load agkozak/agkozak-zsh-prompt
-    zgenom load subnixr/minimal
+    zgenom load agkozak/agkozak-zsh-prompt
+    # zgenom load subnixr/minimal
+    # zgenom load miekg/lean
 fi
 
 # fzf
@@ -40,24 +40,28 @@ export VISUAL="nvim"
 export ZVM_VI_EDITOR="nvim"
 
 # prompt
+#
+#
+#
 # https://github.com/subnixr/minimal
 # MNML_USER_CHAR="$(whoami)@$(hostname)"
-MNML_USER_CHAR="io"
-# MNML_USER_CHAR=""
-MNML_NORMAL_CHAR="•"
-MNML_INSERT_CHAR=">"
-MNML_PROMPT=(mnml_ssh mnml_pyenv mnml_status mnml_keymap)
-MNML_RPROMPT=('mnml_cwd 999 999' mnml_git)
-
+# MNML_USER_CHAR="io"
+# # MNML_USER_CHAR=""
+# MNML_NORMAL_CHAR="•"
+# MNML_INSERT_CHAR=">"
+# MNML_PROMPT=(mnml_ssh mnml_pyenv mnml_status mnml_keymap)
+# MNML_RPROMPT=('mnml_cwd 999 999' mnml_git)
 #
 #
 #
-# AGKOZAK_MULTILINE=0
-# AGKOZAK_USER_HOST_DISPLAY=0
-# AGKOZAK_PROMPT_DIRTRIM=5
-# AGKOZAK_COLORS_BRANCH_STATUS=green
-# AGKOZAK_COLORS_PROMPT_CHAR=blue
-# AGKOZAK_COLORS_VIRTUALENV=yellow
+#
+AGKOZAK_MULTILINE=0
+AGKOZAK_USER_HOST_DISPLAY=0
+AGKOZAK_PROMPT_DIRTRIM=5
+AGKOZAK_COLORS_BRANCH_STATUS=green
+AGKOZAK_COLORS_PROMPT_CHAR=blue
+AGKOZAK_COLORS_VIRTUALENV=yellow
+AGKOZAK_PROMPT_CHAR=( $ %# $ )
 # AGKOZAK_CUSTOM_PROMPT='%F{blue}%~%f %# '
 #
 #
