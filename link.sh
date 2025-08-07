@@ -19,5 +19,7 @@ elif [[ "$(uname)" = "Darwin" ]]; then
     ln -s ~/dotfiles/config/zshrc ~/.zshrc
     # TODO: make sure to point iterm2 to ~/dotfiles/config/iterm2
     echo "make sure to point iterm2 to ~/dotfiles/config/iterm2"
+    echo "creating ~/.hushlogin to disable Last Login messages"
+    touch ~/.hushlogin
 fi
 
