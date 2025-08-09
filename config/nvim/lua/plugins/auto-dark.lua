@@ -7,7 +7,7 @@ return {
     end,
     set_light_mode = function()
         -- vim.api.nvim_set_option_value("background", "light", {})
-        vim.cmd.colorscheme("ayu-mirage")
+        vim.cmd.colorscheme("ayu-light")
     end,
     update_interval = 3000,
     fallback = "dark"

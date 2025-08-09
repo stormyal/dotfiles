@@ -19,6 +19,8 @@ vim.o.termguicolors = true -- 24 bit colors
 vim.o.autoread = true -- update files on external updates
 vim.o.clipboard = "" -- no clipboard syncing
 vim.o.updatetime = 1000 -- ui update rate
+vim.o.splitright = true
+vim.o.splitbelow = true
 
 -- FOLDING
 -- vim.o.foldcolumn = '1' -- '0' is not bad

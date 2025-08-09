@@ -71,12 +71,22 @@ vim.keymap.set('n', '<c-p>', 'ddkP')
 --
 -- plugins init
 --
-vim.keymap.set('n', '<leader>l', ":Lazy<cr>")
+
+-- telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
+--
+--
+-- vim.keymap.set('n', '<leader>l', ":Lazy<cr>")
 vim.keymap.set('n', '<leader>/', ":Oil<cr>")
-vim.keymap.set('n', "<leader>t", ":Neotree toggle right<cr>")
-vim.keymap.set('n', '<leader>f', ":FzfLua live_grep<cr>")
-vim.keymap.set('n', '<leader>o', ":FzfLua files<cr>")
-vim.keymap.set('n', '<leader>b', ":FzfLua buffers<cr>")
+-- vim.keymap.set('n', "<leader>t", ":Neotree toggle right<cr>")
+-- vim.keymap.set('n', '<leader>f', ":FzfLua live_grep<cr>")
+-- vim.keymap.set('n', '<leader>o', ":FzfLua files<cr>")
+-- vim.keymap.set('n', '<leader>b', ":FzfLua buffers<cr>")
 
 -- persisted.nvim
 -- vim.keymap.set('n', '<leader>ss', ':SessionSave ') 
