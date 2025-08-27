@@ -10,6 +10,9 @@ vim.keymap.set('n', '<leader>ez', ":e ~/.zshrc<cr>")
 vim.keymap.set('n', '<leader>ee', ":e ~/dotfiles<cr>")
 vim.keymap.set('n', '<leader>en', ":Oil ~/dotfiles/note.txt<cr>")
 
+-- TODO
+-- vim.keymap.set('n', '<leader><leader>w', ":set wrap") -- TODO
+
 -- move up/down in wrapped lines
 vim.keymap.set('n', '<down>', 'gj')
 vim.keymap.set('n', '<up>', 'gk')
@@ -73,20 +76,21 @@ vim.keymap.set('n', '<c-p>', 'ddkP')
 --
 
 -- telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+-- local builtin = require('telescope.builtin')
+-- vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+-- vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+-- vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+-- vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
 --
 --
--- vim.keymap.set('n', '<leader>l', ":Lazy<cr>")
+vim.keymap.set('n', '<leader>l', ":Lazy<cr>")
 vim.keymap.set('n', '<leader>/', ":Oil<cr>")
--- vim.keymap.set('n', "<leader>t", ":Neotree toggle right<cr>")
--- vim.keymap.set('n', '<leader>f', ":FzfLua live_grep<cr>")
--- vim.keymap.set('n', '<leader>o', ":FzfLua files<cr>")
--- vim.keymap.set('n', '<leader>b', ":FzfLua buffers<cr>")
+vim.keymap.set('n', "<leader>t", ":Neotree toggle right<cr>")
+
+vim.keymap.set('n', '<leader>ff', ":FzfLua live_grep<cr>")
+vim.keymap.set('n', '<leader>fo', ":FzfLua files<cr>")
+vim.keymap.set('n', '<leader>fb', ":FzfLua buffers<cr>")
 
 -- persisted.nvim
 -- vim.keymap.set('n', '<leader>ss', ':SessionSave ') 
@@ -122,3 +126,38 @@ end, { silent = true, desc = "Fuzzy complete file" })
 --         }
 --     })
 -- end,  { silent = true}) 
+--
+--
+--
+--
+--
+-- LSP
+--
+-- local opts = { silent = true }
+
+-- Essential LSP keymaps
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
+vim.keymap.set("n", "gr", vim.lsp.buf.references)
+vim.keymap.set("n", "K", vim.lsp.buf.hover)
+vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help)
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+vim.keymap.set("n", "<leader><leader>f", function()
+    vim.lsp.buf.format({ async = true })
+end)
+
+-- Diagnostic keymaps
+vim.keymap.set("n", "<leader>n", function()
+  vim.diagnostic.jump({count = 1, float = true})
+end)
+
+vim.keymap.set("n", "<leader>p", function()
+  vim.diagnostic.jump({count = -1, float = true})
+end)
+-- vim.keymap.set("n", "<leader>n", vim.diagnostic.jump({count=1, float=true}))
+-- vim.keymap.set("n", "<leader>p", vim.diagnostic.jump({count=-1, float=true}))
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+

@@ -4,6 +4,8 @@
 <dict>
 	<key>AllowClipboardAccess</key>
 	<true/>
+	<key>CommandSelection</key>
+	<true/>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>ayu Dark</key>
@@ -1017,6 +1019,10 @@
 	<key>NeverWarnAboutShortLivedSessions_D5973455-C2B4-47FE-A4B7-C66E95158919</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_D5973455-C2B4-47FE-A4B7-C66E95158919_selection</key>
+	<integer>0</integer>
+	<key>NeverWarnAboutShortLivedSessions_F5848080-9310-4420-BF3D-B47F59253492</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_F5848080-9310-4420-BF3D-B47F59253492_selection</key>
 	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
@@ -2871,19 +2877,7 @@
 				<string>telnet</string>
 			</array>
 			<key>Keyboard Map</key>
-			<dict>
-				<key>0x74-0x100000-0x0</key>
-				<dict>
-					<key>Action</key>
-					<integer>27</integer>
-					<key>Label</key>
-					<string></string>
-					<key>Text</key>
-					<string>D5973455-C2B4-47FE-A4B7-C66E95158919</string>
-					<key>Version</key>
-					<integer>1</integer>
-				</dict>
-			</dict>
+			<dict/>
 			<key>Left Option Key Changeable</key>
 			<false/>
 			<key>Link Color</key>
