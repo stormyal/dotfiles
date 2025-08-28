@@ -21,7 +21,9 @@ return {
         filesystem = {
             group_empty_dirs = true,
             use_libuv_file_watcher = true,
-            follow_current_file = true,
+            follow_current_file = {
+                enabled = true
+            },
             hijack_netrw_behavior = "disabled",
 
             filtered_items = {

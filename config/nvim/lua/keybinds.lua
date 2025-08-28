@@ -10,6 +10,10 @@ vim.keymap.set('n', '<leader>ez', ":e ~/.zshrc<cr>")
 vim.keymap.set('n', '<leader>ee', ":e ~/dotfiles<cr>")
 vim.keymap.set('n', '<leader>en', ":Oil ~/dotfiles/note.txt<cr>")
 
+
+-- alternate file with backspace
+vim.keymap.set('n', '<backspace>', '<c-^>')
+
 -- TODO
 -- vim.keymap.set('n', '<leader><leader>w', ":set wrap") -- TODO
 
@@ -141,7 +145,7 @@ vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
 vim.keymap.set("n", "gr", vim.lsp.buf.references)
 vim.keymap.set("n", "K", vim.lsp.buf.hover)
-vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help)
+-- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help)
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
 vim.keymap.set("n", "<leader><leader>f", function()
