@@ -92,9 +92,10 @@ vim.keymap.set('n', '<leader>l', ":Lazy<cr>")
 vim.keymap.set('n', '<leader>/', ":Oil<cr>")
 vim.keymap.set('n', "<leader>t", ":Neotree toggle right<cr>")
 
-vim.keymap.set('n', '<leader>ff', ":FzfLua live_grep<cr>")
-vim.keymap.set('n', '<leader>fo', ":FzfLua files<cr>")
-vim.keymap.set('n', '<leader>fb', ":FzfLua buffers<cr>")
+
+vim.keymap.set('n', '<leader>f', ":FzfLua live_grep<cr>")
+vim.keymap.set('n', '<leader>o', ":FzfLua files<cr>")
+vim.keymap.set('n', '<leader>b', ":FzfLua buffers<cr>")
 
 -- persisted.nvim
 -- vim.keymap.set('n', '<leader>ss', ':SessionSave ') 
